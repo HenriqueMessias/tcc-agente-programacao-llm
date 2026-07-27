@@ -55,3 +55,16 @@ Exemplo de item:
   <span data-testid="task-text">Comprar pão</span>
   <button data-testid="delete-task-button">Excluir</button>
 </li>
+
+## 4. Comportamento Visual
+- Largura máxima da área de tarefas: 600px, centralizada.
+- Fonte: sans-serif, tamanho base 16px.
+- Cores:
+  - Fundo: #f9f9f9
+  - Botões: #007bff (azul) com texto branco.
+  - Botão excluir: #dc3545 (vermelho).
+- Estados dos botões: hover com leve escurecimento (10%).
+- Layout responsivo simples: em telas < 400px, botões empilhados abaixo do texto.
+
+## 5. Regras de Integração (simulação)
+- Nenhuma chamada HTTP. O agente **não** deve tentar implementar fetch/axios.
