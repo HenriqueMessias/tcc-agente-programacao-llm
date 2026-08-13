@@ -65,7 +65,7 @@ class SDDContract(BaseModel):
 class GenerateRequest(BaseModel):
     contract: SDDContract
     prompt: str = Field(min_length=1, max_length=20_000)
-    provider: str = Field(default="openai", pattern="^(openai|anthropic)$")
+    provider: str = Field(default="openai", pattern="^(openai|anthropic|groq)$")
     model: str | None = None
     max_retries: int = Field(default=3, ge=0, le=10)
     budget_usd: float = Field(default=0.50, gt=0, le=100)

@@ -1,17 +1,14 @@
 services:
   hermes-api:
     build:
-      context: .
+      context: ./backend
       dockerfile: Dockerfile
-    env_file: [compose.env]
+    env_file: [./compose.env]
     command: ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
-    ports:
-      - "8000:8000"
+    ports: ["8000:8000"]
     depends_on:
-      paperclip:
-        condition: service_healthy
-      sandbox-runner:
-        condition: service_healthy
+      paperclip: { condition: service_healthy }
+      sandbox-runner: { condition: service_healthy }
     networks: [hermes_backend, hermes_external]
     restart: unless-stopped
     init: true
@@ -20,9 +17,7 @@ services:
     cap_drop: [ALL]
     deploy:
       resources:
-        limits:
-          cpus: "1.50"
-          memory: 1G
+        limits: { cpus: "1.50", memory: 1G }
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/docs', timeout=3)"]
       interval: 30s
@@ -32,9 +27,9 @@ services:
 
   paperclip:
     build:
-      context: .
+      context: ./backend
       dockerfile: Dockerfile
-    env_file: [compose.env]
+    env_file: [./compose.env]
     command: ["uvicorn", "app.paperclip_main:app", "--host", "0.0.0.0", "--port", "8001"]
     expose: ["8001"]
     networks: [hermes_backend]
@@ -44,9 +39,7 @@ services:
     cap_drop: [ALL]
     deploy:
       resources:
-        limits:
-          cpus: "0.50"
-          memory: 256M
+        limits: { cpus: "0.50", memory: 256M }
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8001/health', timeout=3)"]
       interval: 15s
@@ -56,9 +49,9 @@ services:
 
   sandbox-runner:
     build:
-      context: .
+      context: ./backend
       dockerfile: Dockerfile
-    env_file: [compose.env]
+    env_file: [./compose.env]
     command: ["uvicorn", "app.sandbox_main:app", "--host", "0.0.0.0", "--port", "8002"]
     expose: ["8002"]
     networks: [hermes_backend]
@@ -69,15 +62,29 @@ services:
     cap_drop: [ALL]
     deploy:
       resources:
-        limits:
-          cpus: "1.00"
-          memory: 768M
+        limits: { cpus: "1.00", memory: 768M }
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8002/health', timeout=3)"]
       interval: 15s
       timeout: 5s
       retries: 3
       start_period: 20s
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    depends_on:
+      hermes-api: { condition: service_healthy }
+    ports: ["8080:80"]
+    networks: [hermes_external]
+    restart: unless-stopped
+    security_opt: ["no-new-privileges:true"]
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://127.0.0.1/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
 
 networks:
   hermes_backend:

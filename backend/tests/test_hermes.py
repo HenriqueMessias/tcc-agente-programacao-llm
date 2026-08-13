@@ -1,10 +1,10 @@
 import pytest
 
-from app.compressor import TokenCompressor
-from app.schemas import SDDContract
-from app.telemetry import TelemetryTracker
-from app.paperclip import PaperclipGovernance
-from app.schemas import ExecutionMode, GenerateRequest
+from backend.app.compressor import TokenCompressor
+from backend.app.schemas import SDDContract
+from backend.app.telemetry import TelemetryTracker
+from backend.app.paperclip import PaperclipGovernance
+from backend.app.schemas import ExecutionMode, GenerateRequest
 
 
 @pytest.mark.asyncio
@@ -38,3 +38,8 @@ async def test_paperclip_approves_restricted_contract_and_baseline():
     baseline = await governance.approve(GenerateRequest(contract=contract, prompt="gerar", mode=ExecutionMode.BASELINE))
     assert restricted.approved and restricted.approval_id.startswith("sdd-")
     assert baseline.approved and baseline.approval_id.startswith("baseline-")
+
+
+def test_groq_is_an_available_provider():
+    request = GenerateRequest(contract=SDDContract(elements=[{"tag": "main"}]), prompt="gerar", provider="groq")
+    assert request.provider == "groq"

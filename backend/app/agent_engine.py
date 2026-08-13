@@ -1,5 +1,5 @@
 from .compressor import TokenCompressor
-from .llm_client import AnthropicClient, LLMClient, OpenAIClient, contract_prompt
+from .llm_client import AnthropicClient, GroqClient, LLMClient, OpenAIClient, contract_prompt
 from .pipeline_clients import PaperclipClient, SandboxClient
 from .schemas import AgentState, GenerateRequest, GenerateResponse
 from .telemetry import TelemetryTracker
@@ -19,7 +19,7 @@ class HermesEngine:
 
     async def run(self, request: GenerateRequest) -> GenerateResponse:
         tracker = TelemetryTracker(budget_usd=request.budget_usd, max_retries=request.max_retries)
-        client = self.llm or (AnthropicClient() if request.provider == "anthropic" else OpenAIClient())
+        client = self.llm or ({"openai": OpenAIClient, "anthropic": AnthropicClient, "groq": GroqClient}[request.provider]())
         approval = await self.paperclip.approve(request)
         if not approval.approved:
             return GenerateResponse(status=AgentState.FAILED_CIRCUIT_BREAK, errors=[{"kind": "governance_rejection", "message": approval.reason or "SDD rejeitado"}], telemetry=tracker.snapshot(), mode=request.mode, approval_id=approval.approval_id)

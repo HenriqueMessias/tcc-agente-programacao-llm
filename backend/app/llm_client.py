@@ -31,6 +31,20 @@ class AnthropicClient:
         return _extract_html(text), response.usage.input_tokens, response.usage.output_tokens, 0.0
 
 
+class GroqClient:
+    async def generate(self, prompt: str, model: str | None = None) -> tuple[str, int, int, float]:
+        from groq import AsyncGroq
+
+        response = await AsyncGroq(api_key=os.environ["GROQ_API_KEY"]).chat.completions.create(
+            model=model or os.getenv("HERMES_GROQ_MODEL", "llama-3.3-70b-versatile"),
+            temperature=0.2,
+            max_tokens=8_000,
+            messages=[{"role": "user", "content": prompt}],
+        )
+        usage = response.usage
+        text = response.choices[0].message.content or ""
+        return _extract_html(text), usage.prompt_tokens, usage.completion_tokens, 0.0
+
+
 def contract_prompt(contract: SDDContract, request: str) -> str:
     return "Gere somente HTML válido, sem markdown. Cumpra estritamente este contrato SDD:\n" + json.dumps(contract.model_dump(), ensure_ascii=False) + "\nPedido:\n" + request
-

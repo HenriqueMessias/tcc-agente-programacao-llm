@@ -22,7 +22,7 @@ uvicorn app.main:app --reload
 Com Docker:
 
 ```powershell
-docker compose up --build
+docker compose -f ../docker-compose.yml up --build
 ```
 
 Os serviços são:
