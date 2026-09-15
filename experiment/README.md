@@ -63,8 +63,10 @@ for line in open('results/<execution_id>/log.jsonl', encoding='utf-8'):
 Com tudo rodado, consolida num CSV:
 
 ```bash
-python summarize_results.py > results_summary.csv
+python summarize_results.py --final-only > results_summary.csv
 ```
+
+`results/` acumula tudo — pilotos, tentativas que bateram em erro de infraestrutura e foram re-rodadas com a mesma seed, essas coisas. `--final-only` filtra pra só as 30 definitivas: seed e repetição em 1..5, e para cada combinação (task, mode, seed, repetition) fica só a execução mais recente (a que realmente valeu, não a que travou no meio). Sem essa flag, `summarize_results.py` te devolve tudo que tem em `results/`, útil pra depuração mas não é o dataset da análise.
 
 Uma linha por execução, com as colunas que a análise da seção 6.9 precisa (H1: `acceptance_criteria_ratio`; H2: `e2e_failures`; H3: tokens/custo — a eficiência em si é calculada no script de análise). E por fim a análise estatística:
 
