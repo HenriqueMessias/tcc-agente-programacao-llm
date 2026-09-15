@@ -1,0 +1,125 @@
+[
+  {
+    "execution_id": "t1_biblioteca_restricted_seed1rep1_1789385863",
+    "task": "t1_biblioteca",
+    "mode": "restricted",
+    "seed": 1,
+    "repetition": 1,
+    "provider": "deepseek",
+    "status": "malsucedida:max_dom_visual_passes",
+    "elapsed_s": 373.37160658836365,
+    "total_cost_usd": 0.09715243999999999,
+    "total_input_tokens": 324866,
+    "total_output_tokens": 14738,
+    "total_cache_tokens": 124032,
+    "final_metrics": {}
+  },
+  {
+    "execution_id": "t1_biblioteca_baseline_seed1rep1_1789386240",
+    "task": "t1_biblioteca",
+    "mode": "baseline",
+    "seed": 1,
+    "repetition": 1,
+    "provider": "deepseek",
+    "status": "concluida",
+    "elapsed_s": 183.0695834159851,
+    "total_cost_usd": 0.06837011999999999,
+    "total_input_tokens": 230874,
+    "total_output_tokens": 8870,
+    "total_cache_tokens": 115453,
+    "final_metrics": {
+      "acceptance_criteria_total": 0,
+      "acceptance_criteria_passed": 0,
+      "acceptance_criteria_ratio": 0.0,
+      "passed": false,
+      "dom_assertions_total": 10,
+      "dom_assertions_passed": 0,
+      "visual_captures_total": 0,
+      "visual_captures_passed": 0,
+      "e2e_total": 3,
+      "e2e_failures": 3,
+      "diff_report": {
+        "dom": [
+          {
+            "route": "Listagem de livros",
+            "selector": "table",
+            "found": false,
+            "error": "Page.goto: net::ERR_EMPTY_RESPONSE at http://localhost:60789/books\nCall log:\n  - navigating to \"http://localhost:60789/books\", waiting until \"load\"\n"
+          },
+          {
+            "route": "Listagem de livros",
+            "selector": "a[href='/books/new'], #new-book-link",
+            "found": false,
+            "error": "Page.goto: net::ERR_EMPTY_RESPONSE at http://localhost:60789/books\nCall log:\n  - navigating to \"http://localhost:60789/books\", waiting until \"load\"\n"
+          },
+          {
+            "route": "Listagem de livros",
+            "selector": "input[name='query']",
+            "found": false,
+            "error": "Page.goto: net::ERR_EMPTY_RESPONSE at http://localhost:60789/books\nCall log:\n  - navigating to \"http://localhost:60789/books\", waiting until \"load\"\n"
+          },
+          {
+            "route": "Novo livro",
+            "selector": "form",
+            "found": false,
+            "error": "Page.goto: net::ERR_EMPTY_RESPONSE at http://localhost:60789/books/new\nCall log:\n  - navigating to \"http://localhost:60789/books/new\", waiting until \"load\"\n"
+          },
+          {
+            "route": "Novo livro",
+            "selector": "#book_title, input[name='book[title]']",
+            "found": false,
+            "error": "Page.goto: net::ERR_EMPTY_RESPONSE at http://localhost:60789/books/new\nCall log:\n  - navigating to \"http://localhost:60789/books/new\", waiting until \"load\"\n"
+          },
+          {
+            "route": "Novo livro",
+            "selector": "#book_author_id, select[name='book[author_id]']",
+            "found": false,
+            "error": "Page.goto: net::ERR_EMPTY_RESPONSE at http://localhost:60789/books/new\nCall log:\n  - navigating to \"http://localhost:60789/books/new\", waiting until \"load\"\n"
+          },
+          {
+            "route": "Listagem de autores",
+            "selector": "table",
+            "found": false,
+            "error": "Page.goto: net::ERR_EMPTY_RESPONSE at http://localhost:60789/authors\nCall log:\n  - navigating to \"http://localhost:60789/authors\", waiting until \"load\"\n"
+          },
+          {
+            "route": "Listagem de autores",
+            "selector": "a[href='/authors/new'], #new-author-link",
+            "found": false,
+            "error": "Page.goto: net::ERR_EMPTY_RESPONSE at http://localhost:60789/authors\nCall log:\n  - navigating to \"http://localhost:60789/authors\", waiting until \"load\"\n"
+          },
+          {
+            "route": "Novo autor",
+            "selector": "form",
+            "found": false,
+            "error": "Page.goto: net::ERR_EMPTY_RESPONSE at http://localhost:60789/authors/new\nCall log:\n  - navigating to \"http://localhost:60789/authors/new\", waiting until \"load\"\n"
+          },
+          {
+            "route": "Novo autor",
+            "selector": "#author_name, input[name='author[name]']",
+            "found": false,
+            "error": "Page.goto: net::ERR_EMPTY_RESPONSE at http://localhost:60789/authors/new\nCall log:\n  - navigating to \"http://localhost:60789/authors/new\", waiting until \"load\"\n"
+          }
+        ],
+        "visual": [],
+        "e2e": [
+          {
+            "name": "criar_autor_e_livro_associado",
+            "passed": false,
+            "error": "Page.goto: net::ERR_EMPTY_RESPONSE at http://localhost:60789/authors/new\nCall log:\n  - navigating to \"http://localhost:60789/authors/new\", waiting until \"load\"\n"
+          },
+          {
+            "name": "busca_por_titulo_parcial",
+            "passed": false,
+            "error": "Page.goto: net::ERR_EMPTY_RESPONSE at http://localhost:60789/books?query=Capit%C3%A3es\nCall log:\n  - navigating to \"http://localhost:60789/books?query=Capit%C3%A3es\", waiting until \"load\"\n"
+          },
+          {
+            "name": "formulario_rejeita_titulo_vazio",
+            "passed": false,
+            "error": "Page.goto: net::ERR_EMPTY_RESPONSE at http://localhost:60789/books/new\nCall log:\n  - navigating to \"http://localhost:60789/books/new\", waiting until \"load\"\n"
+          }
+        ]
+      }
+    }
+  }
+]

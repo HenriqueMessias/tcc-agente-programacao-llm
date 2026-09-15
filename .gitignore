@@ -4,8 +4,6 @@ __pycache__/
 venv/
 .pytest_cache/
 compose.env
-experiment/results/**
-!experiment/results/.gitkeep
 experiment/.env
 experiment/tasks/*/reference_app/log/*.log
 experiment/tasks/*/reference_app/storage/*.sqlite3*

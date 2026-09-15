@@ -1,0 +1,78 @@
+<div id="dashboard">
+  <h1>Dashboard de Vendas</h1>
+
+  <%= form_with url: dashboard_path, method: :get, id: "filter-form", local: true do %>
+    <div>
+      <label for="start_date">Data inicial</label>
+      <input type="date" name="start_date" id="start_date"
+             value="<%= @start_date&.strftime('%Y-%m-%d') %>">
+    </div>
+    <div>
+      <label for="end_date">Data final</label>
+      <input type="date" name="end_date" id="end_date"
+             value="<%= @end_date&.strftime('%Y-%m-%d') %>">
+    </div>
+    <div>
+      <input type="submit" value="Filtrar">
+    </div>
+  <% end %>
+
+  <section class="metrics">
+    <div class="metric">
+      <span class="metric-label">Total de vendas</span>
+      <span id="metric-total"><%= number_to_currency(@total, unit: "R$ ", separator: ",", delimiter: ".") %></span>
+    </div>
+    <div class="metric">
+      <span class="metric-label">Número de pedidos</span>
+      <span id="metric-count"><%= @count %></span>
+    </div>
+    <div class="metric">
+      <span class="metric-label">Ticket médio</span>
+      <span id="metric-average"><%= number_to_currency(@average, unit: "R$ ", separator: ",", delimiter: ".") %></span>
+    </div>
+  </section>
+
+  <% if @orders.empty? %>
+    <div id="empty-state">
+      <p>Nenhum pedido encontrado no período selecionado.</p>
+    </div>
+  <% else %>
+    <section class="chart-section">
+      <h2>Vendas por categoria</h2>
+      <div id="chart">
+        <% max_value = @by_category.values.max.to_f %>
+        <% max_value = 1.0 if max_value.zero? %>
+        <% @by_category.each do |category, total| %>
+          <% width = (total.to_f / max_value * 100).round(2) %>
+          <div class="chart-bar" data-category="<%= category %>" data-value="<%= total %>">
+            <span class="chart-bar-label"><%= category %></span>
+            <span class="chart-bar-track">
+              <span class="chart-bar-fill" style="width: <%= width %>%;"></span>
+            </span>
+            <span class="chart-bar-value"><%= number_to_currency(total, unit: "R$ ", separator: ",", delimiter: ".") %></span>
+          </div>
+        <% end %>
+      </div>
+    </section>
+
+    <section class="orders-section">
+      <h2>Pedidos</h2>
+      <table id="orders-table">
+        <thead>
+          <tr>
+            <th>Categoria</th>
+            <th>Valor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @orders.each do |order| %>
+            <tr>
+              <td class="order-category"><%= order.category %></td>
+              <td class="order-amount"><%= number_to_currency(order.amount, unit: "R$ ", separator: ",", delimiter: ".") %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </section>
+  <% end %>
+</div>

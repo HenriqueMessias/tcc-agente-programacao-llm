@@ -1,0 +1,21 @@
+<h1>Login</h1>
+
+<% if flash[:alert].present? %>
+  <div id="login-error"><%= flash[:alert] %></div>
+<% end %>
+
+<%= form_with url: login_path, method: :post, html: { id: "login-form" } do |form| %>
+  <div>
+    <%= form.label :email, "Email" %>
+    <%= form.email_field :email, id: "email" %>
+  </div>
+
+  <div>
+    <%= form.label :password, "Senha" %>
+    <%= form.password_field :password, id: "password" %>
+  </div>
+
+  <div>
+    <%= form.submit "Entrar" %>
+  </div>
+<% end %>

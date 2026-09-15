@@ -1,0 +1,35 @@
+<h1>Livros</h1>
+
+<%= link_to "Novo Livro", new_book_path %>
+
+<%= form_with(url: books_path, method: :get) do |form| %>
+  <div>
+    <%= form.label :query, "Buscar por título" %>
+    <%= form.text_field :query, value: @query %>
+    <%= form.submit "Buscar" %>
+  </div>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Título</th>
+      <th>Ano de Publicação</th>
+      <th>Autor</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @books.each do |book| %>
+      <tr>
+        <td><%= book.title %></td>
+        <td><%= book.published_year %></td>
+        <td><%= book.author&.name %></td>
+        <td>
+          <%= link_to "Editar", edit_book_path(book) %>
+          <%= link_to "Excluir", book, data: { turbo_method: :delete, turbo_confirm: "Tem certeza?" } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AuthApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag :app %>
+  </head>
+
+  <body>
+    <nav>
+      <% if logged_in? %>
+        <%= button_to "Logout", logout_path, method: :delete %>
+      <% else %>
+        <%= link_to "Login", login_path %> |
+        <%= link_to "Cadastro", signup_path %>
+      <% end %>
+    </nav>
+
+    <%= yield %>
+  </body>
+</html>

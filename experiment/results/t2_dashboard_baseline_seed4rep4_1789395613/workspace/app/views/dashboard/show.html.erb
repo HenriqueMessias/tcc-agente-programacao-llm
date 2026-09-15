@@ -1,0 +1,81 @@
+<div id="dashboard">
+  <header class="dashboard-header">
+    <h1>Dashboard de Vendas</h1>
+    <p class="subtitle">Indicadores agregados, pedidos e distribuição por categoria.</p>
+  </header>
+
+  <%= form_with url: dashboard_path, method: :get, id: "filter-form", local: true do |f| %>
+    <div class="filter-fields">
+      <div class="field">
+        <%= f.label :start_date, "Data inicial" %>
+        <%= f.date_field :start_date, value: @start_date&.strftime("%Y-%m-%d"), name: "start_date" %>
+      </div>
+      <div class="field">
+        <%= f.label :end_date, "Data final" %>
+        <%= f.date_field :end_date, value: @end_date&.strftime("%Y-%m-%d"), name: "end_date" %>
+      </div>
+      <div class="field actions">
+        <%= f.submit "Filtrar" %>
+        <%= link_to "Limpar", dashboard_path, class: "clear-link" %>
+      </div>
+    </div>
+  <% end %>
+
+  <section class="metrics">
+    <div class="metric-card">
+      <span class="metric-label">Total de vendas</span>
+      <span class="metric-value" id="metric-total"><%= number_to_currency(@total, unit: "R$ ", separator: ",", delimiter: ".") %></span>
+    </div>
+    <div class="metric-card">
+      <span class="metric-label">Número de pedidos</span>
+      <span class="metric-value" id="metric-count"><%= @count %></span>
+    </div>
+    <div class="metric-card">
+      <span class="metric-label">Ticket médio</span>
+      <span class="metric-value" id="metric-average"><%= number_to_currency(@average, unit: "R$ ", separator: ",", delimiter: ".") %></span>
+    </div>
+  </section>
+
+  <% if @orders.empty? %>
+    <div id="empty-state" class="empty-state">
+      <h2>Nenhum pedido encontrado</h2>
+      <p>Não há pedidos no período selecionado. Ajuste o filtro de datas e tente novamente.</p>
+    </div>
+  <% else %>
+    <section class="chart-section">
+      <h2>Valores por categoria</h2>
+      <div id="chart" class="chart">
+        <% @by_category.each do |category, total| %>
+          <% height = @max_category_total.positive? ? ((total.to_d / @max_category_total) * 100).round(2) : 0 %>
+          <div class="chart-bar" data-category="<%= category %>" data-total="<%= total %>">
+            <span class="chart-bar-value"><%= number_to_currency(total, unit: "R$ ", separator: ",", delimiter: ".") %></span>
+            <div class="chart-bar-fill" style="height: <%= height %>%;"></div>
+            <span class="chart-bar-label"><%= category %></span>
+          </div>
+        <% end %>
+      </div>
+    </section>
+
+    <section class="table-section">
+      <h2>Pedidos do período</h2>
+      <table id="orders-table">
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Categoria</th>
+            <th>Valor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @orders.each do |order| %>
+            <tr>
+              <td class="order-date"><%= order.order_date.strftime("%Y-%m-%d") %></td>
+              <td class="order-category"><%= order.category %></td>
+              <td class="order-amount"><%= number_to_currency(order.amount, unit: "R$ ", separator: ",", delimiter: ".") %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </section>
+  <% end %>
+</div>

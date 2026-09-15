@@ -1,0 +1,12 @@
+#chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  height: 150px;
+}
+
+.chart-bar {
+  background: #4a90d9;
+  min-width: 30px;
+  min-height: 2px;
+}

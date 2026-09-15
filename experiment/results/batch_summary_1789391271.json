@@ -1,0 +1,137 @@
+[
+  {
+    "execution_id": "t1_biblioteca_restricted_seed1rep1_1789390602",
+    "task": "t1_biblioteca",
+    "mode": "restricted",
+    "seed": 1,
+    "repetition": 1,
+    "provider": "deepseek",
+    "status": "malsucedida:max_iterations",
+    "elapsed_s": 521.2806634902954,
+    "total_cost_usd": 0.22392034000000005,
+    "total_input_tokens": 756097,
+    "total_output_tokens": 29079,
+    "total_cache_tokens": 211840,
+    "final_metrics": {}
+  },
+  {
+    "execution_id": "t1_biblioteca_baseline_seed1rep1_1789391137",
+    "task": "t1_biblioteca",
+    "mode": "baseline",
+    "seed": 1,
+    "repetition": 1,
+    "provider": "deepseek",
+    "status": "concluida",
+    "elapsed_s": 130.5482211112976,
+    "total_cost_usd": 0.031919579999999996,
+    "total_input_tokens": 105390,
+    "total_output_tokens": 5739,
+    "total_cache_tokens": 57469,
+    "final_metrics": {
+      "acceptance_criteria_total": 12,
+      "acceptance_criteria_passed": 12,
+      "acceptance_criteria_ratio": 1.0,
+      "passed": false,
+      "dom_assertions_total": 10,
+      "dom_assertions_passed": 10,
+      "visual_captures_total": 4,
+      "visual_captures_passed": 2,
+      "e2e_total": 3,
+      "e2e_failures": 0,
+      "diff_report": {
+        "dom": [
+          {
+            "route": "Listagem de livros",
+            "selector": "table",
+            "found": true
+          },
+          {
+            "route": "Listagem de livros",
+            "selector": "a[href='/books/new'], #new-book-link",
+            "found": true
+          },
+          {
+            "route": "Listagem de livros",
+            "selector": "input[name='query']",
+            "found": true
+          },
+          {
+            "route": "Novo livro",
+            "selector": "form",
+            "found": true
+          },
+          {
+            "route": "Novo livro",
+            "selector": "#book_title, input[name='book[title]']",
+            "found": true
+          },
+          {
+            "route": "Novo livro",
+            "selector": "#book_author_id, select[name='book[author_id]']",
+            "found": true
+          },
+          {
+            "route": "Listagem de autores",
+            "selector": "table",
+            "found": true
+          },
+          {
+            "route": "Listagem de autores",
+            "selector": "a[href='/authors/new'], #new-author-link",
+            "found": true
+          },
+          {
+            "route": "Novo autor",
+            "selector": "form",
+            "found": true
+          },
+          {
+            "route": "Novo autor",
+            "selector": "#author_name, input[name='author[name]']",
+            "found": true
+          }
+        ],
+        "visual": [
+          {
+            "route": "Listagem de livros",
+            "ssim": 0.7694941643619788,
+            "different_pixels_ratio": 0.12076822916666667,
+            "passed": false
+          },
+          {
+            "route": "Novo livro",
+            "ssim": 0.9509033442234942,
+            "different_pixels_ratio": 0.007595486111111111,
+            "passed": true
+          },
+          {
+            "route": "Listagem de autores",
+            "ssim": 0.813808029361419,
+            "different_pixels_ratio": 0.1105685763888889,
+            "passed": false
+          },
+          {
+            "route": "Novo autor",
+            "ssim": 0.970605885167588,
+            "different_pixels_ratio": 0.006401909722222222,
+            "passed": true
+          }
+        ],
+        "e2e": [
+          {
+            "name": "criar_autor_e_livro_associado",
+            "passed": true
+          },
+          {
+            "name": "busca_por_titulo_parcial",
+            "passed": true
+          },
+          {
+            "name": "formulario_rejeita_titulo_vazio",
+            "passed": true
+          }
+        ]
+      }
+    }
+  }
+]

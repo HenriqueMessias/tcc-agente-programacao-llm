@@ -1,0 +1,68 @@
+<div id="dashboard">
+  <h1>Dashboard de Vendas</h1>
+
+  <%= form_with url: dashboard_path, method: :get, id: "filter-form", local: true do %>
+    <label for="start_date">Data inicial</label>
+    <input type="date" id="start_date" name="start_date"
+           value="<%= @start_date&.strftime('%Y-%m-%d') %>">
+
+    <label for="end_date">Data final</label>
+    <input type="date" id="end_date" name="end_date"
+           value="<%= @end_date&.strftime('%Y-%m-%d') %>">
+
+    <input type="submit" value="Filtrar">
+  <% end %>
+
+  <div id="metrics">
+    <div>
+      <span>Total de vendas</span>
+      <span id="metric-total" data-value="<%= @total_sales.to_f %>"><%= format_currency(@total_sales) %></span>
+    </div>
+    <div>
+      <span>Número de pedidos</span>
+      <span id="metric-count" data-value="<%= @orders_count %>"><%= @orders_count %></span>
+    </div>
+    <div>
+      <span>Ticket médio</span>
+      <span id="metric-average" data-value="<%= @average_ticket.to_f %>"><%= format_currency(@average_ticket) %></span>
+    </div>
+  </div>
+
+  <% if @metrics.empty? %>
+    <div id="empty-state">
+      <p>Nenhum pedido encontrado no período selecionado.</p>
+    </div>
+  <% else %>
+    <h2>Vendas por categoria</h2>
+    <div id="chart">
+      <% max_value = @by_category.values.max.to_f %>
+      <% @by_category.sort_by { |_category, value| -value.to_f }.each do |category, value| %>
+        <div class="chart-bar" data-category="<%= category %>" data-value="<%= value.to_f %>"
+             style="height: <%= chart_bar_height(value, max_value) %>%;"
+             title="<%= category %>: <%= format_currency(value) %>">
+          <span><%= category %></span>
+        </div>
+      <% end %>
+    </div>
+
+    <h2>Pedidos do período</h2>
+    <table id="orders-table">
+      <thead>
+        <tr>
+          <th>Categoria</th>
+          <th>Data</th>
+          <th>Valor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @orders.each do |order| %>
+          <tr data-amount="<%= order.amount.to_f %>">
+            <td><%= order.category %></td>
+            <td><%= order.order_date.strftime("%d/%m/%Y") %></td>
+            <td><%= format_currency(order.amount) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>

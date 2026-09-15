@@ -1,0 +1,25 @@
+/*
+ * This is a manifest file that'll be compiled into application.css.
+ *
+ * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
+ * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
+ * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
+ * depending on specificity.
+ *
+ * Consider organizing styles into separate files for maintainability.
+ */
+
+#dashboard { max-width: 900px; margin: 0 auto; padding: 1rem; font-family: system-ui, sans-serif; }
+.metrics { display: flex; gap: 1rem; margin: 1rem 0; }
+.metric { flex: 1; border: 1px solid #ddd; border-radius: 6px; padding: 0.75rem; }
+.metric-label { display: block; font-size: 0.85rem; color: #666; }
+.metric-value { display: block; font-size: 1.5rem; font-weight: bold; }
+#orders-table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+#orders-table th, #orders-table td { text-align: left; padding: 0.5rem; border-bottom: 1px solid #ddd; }
+#chart { margin-top: 1.5rem; }
+.chart-row { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.4rem; }
+.chart-label { width: 130px; font-size: 0.85rem; }
+.chart-bar { display: inline-block; height: 18px; background: #4a90d9; border-radius: 3px; min-width: 2px; }
+.chart-value { font-size: 0.8rem; color: #666; }
+#empty-state { padding: 2rem; text-align: center; color: #666; border: 1px dashed #ccc; border-radius: 6px; margin-top: 1rem; }
+#filter-form { display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; }

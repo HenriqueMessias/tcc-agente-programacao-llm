@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for(:title) || "Workspace" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Workspace">
+    <meta name="mobile-web-app-capable" content="yes">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= yield :head %>
+
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
+
+    <%= stylesheet_link_tag :app %>
+  </head>
+
+  <body>
+    <nav>
+      <%= link_to "Cadastro", signup_path %> |
+      <%= link_to "Login", login_path %> |
+      <% if logged_in? %>
+        <%= button_to "Logout", logout_path, method: :delete %>
+      <% end %>
+    </nav>
+
+    <% if flash[:notice].present? %>
+      <div id="flash-notice"><%= flash[:notice] %></div>
+    <% end %>
+    <% if flash[:alert].present? %>
+      <div id="flash-alert"><%= flash[:alert] %></div>
+    <% end %>
+
+    <%= yield %>
+  </body>
+</html>

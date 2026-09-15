@@ -1,0 +1,1821 @@
+[
+  {
+    "execution_id": "t1_biblioteca_restricted_seed1rep1_1789391307",
+    "task": "t1_biblioteca",
+    "mode": "restricted",
+    "seed": 1,
+    "repetition": 1,
+    "provider": "deepseek",
+    "status": "malsucedida:max_iterations",
+    "elapsed_s": 297.06652784347534,
+    "total_cost_usd": 0.14869666000000006,
+    "total_input_tokens": 499306,
+    "total_output_tokens": 21169,
+    "total_cache_tokens": 157440,
+    "final_metrics": {}
+  },
+  {
+    "execution_id": "t1_biblioteca_baseline_seed1rep1_1789391608",
+    "task": "t1_biblioteca",
+    "mode": "baseline",
+    "seed": 1,
+    "repetition": 1,
+    "provider": "deepseek",
+    "status": "concluida",
+    "elapsed_s": 162.30988216400146,
+    "total_cost_usd": 0.058401419999999996,
+    "total_input_tokens": 196242,
+    "total_output_tokens": 8223,
+    "total_cache_tokens": 110077,
+    "final_metrics": {
+      "acceptance_criteria_total": 12,
+      "acceptance_criteria_passed": 12,
+      "acceptance_criteria_ratio": 1.0,
+      "passed": false,
+      "dom_assertions_total": 10,
+      "dom_assertions_passed": 10,
+      "visual_captures_total": 4,
+      "visual_captures_passed": 2,
+      "e2e_total": 3,
+      "e2e_failures": 0,
+      "diff_report": {
+        "dom": [
+          {
+            "route": "Listagem de livros",
+            "selector": "table",
+            "found": true
+          },
+          {
+            "route": "Listagem de livros",
+            "selector": "a[href='/books/new'], #new-book-link",
+            "found": true
+          },
+          {
+            "route": "Listagem de livros",
+            "selector": "input[name='query']",
+            "found": true
+          },
+          {
+            "route": "Novo livro",
+            "selector": "form",
+            "found": true
+          },
+          {
+            "route": "Novo livro",
+            "selector": "#book_title, input[name='book[title]']",
+            "found": true
+          },
+          {
+            "route": "Novo livro",
+            "selector": "#book_author_id, select[name='book[author_id]']",
+            "found": true
+          },
+          {
+            "route": "Listagem de autores",
+            "selector": "table",
+            "found": true
+          },
+          {
+            "route": "Listagem de autores",
+            "selector": "a[href='/authors/new'], #new-author-link",
+            "found": true
+          },
+          {
+            "route": "Novo autor",
+            "selector": "form",
+            "found": true
+          },
+          {
+            "route": "Novo autor",
+            "selector": "#author_name, input[name='author[name]']",
+            "found": true
+          }
+        ],
+        "visual": [
+          {
+            "route": "Listagem de livros",
+            "ssim": 0.787828925706559,
+            "different_pixels_ratio": 0.1193576388888889,
+            "passed": false
+          },
+          {
+            "route": "Novo livro",
+            "ssim": 0.9557813496670976,
+            "different_pixels_ratio": 0.009114583333333334,
+            "passed": true
+          },
+          {
+            "route": "Listagem de autores",
+            "ssim": 0.8022904987239495,
+            "different_pixels_ratio": 0.1103515625,
+            "passed": false
+          },
+          {
+            "route": "Novo autor",
+            "ssim": 0.9632262987435397,
+            "different_pixels_ratio": 0.0068359375,
+            "passed": true
+          }
+        ],
+        "e2e": [
+          {
+            "name": "criar_autor_e_livro_associado",
+            "passed": true
+          },
+          {
+            "name": "busca_por_titulo_parcial",
+            "passed": true
+          },
+          {
+            "name": "formulario_rejeita_titulo_vazio",
+            "passed": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "execution_id": "t1_biblioteca_baseline_seed2rep2_1789391774",
+    "task": "t1_biblioteca",
+    "mode": "baseline",
+    "seed": 2,
+    "repetition": 2,
+    "provider": "deepseek",
+    "status": "concluida",
+    "elapsed_s": 201.98248171806335,
+    "total_cost_usd": 0.08609146,
+    "total_input_tokens": 291349,
+    "total_output_tokens": 10747,
+    "total_cache_tokens": 125565,
+    "final_metrics": {
+      "acceptance_criteria_total": 12,
+      "acceptance_criteria_passed": 12,
+      "acceptance_criteria_ratio": 1.0,
+      "passed": false,
+      "dom_assertions_total": 10,
+      "dom_assertions_passed": 10,
+      "visual_captures_total": 4,
+      "visual_captures_passed": 2,
+      "e2e_total": 3,
+      "e2e_failures": 0,
+      "diff_report": {
+        "dom": [
+          {
+            "route": "Listagem de livros",
+            "selector": "table",
+            "found": true
+          },
+          {
+            "route": "Listagem de livros",
+            "selector": "a[href='/books/new'], #new-book-link",
+            "found": true
+          },
+          {
+            "route": "Listagem de livros",
+            "selector": "input[name='query']",
+            "found": true
+          },
+          {
+            "route": "Novo livro",
+            "selector": "form",
+            "found": true
+          },
+          {
+            "route": "Novo livro",
+            "selector": "#book_title, input[name='book[title]']",
+            "found": true
+          },
+          {
+            "route": "Novo livro",
+            "selector": "#book_author_id, select[name='book[author_id]']",
+            "found": true
+          },
+          {
+            "route": "Listagem de autores",
+            "selector": "table",
+            "found": true
+          },
+          {
+            "route": "Listagem de autores",
+            "selector": "a[href='/authors/new'], #new-author-link",
+            "found": true
+          },
+          {
+            "route": "Novo autor",
+            "selector": "form",
+            "found": true
+          },
+          {
+            "route": "Novo autor",
+            "selector": "#author_name, input[name='author[name]']",
+            "found": true
+          }
+        ],
+        "visual": [
+          {
+            "route": "Listagem de livros",
+            "ssim": 0.7677514495485808,
+            "different_pixels_ratio": 0.12055121527777778,
+            "passed": false
+          },
+          {
+            "route": "Novo livro",
+            "ssim": 0.9517004416377732,
+            "different_pixels_ratio": 0.007921006944444444,
+            "passed": true
+          },
+          {
+            "route": "Listagem de autores",
+            "ssim": 0.8118851520773631,
+            "different_pixels_ratio": 0.10883246527777778,
+            "passed": false
+          },
+          {
+            "route": "Novo autor",
+            "ssim": 0.9705823282311633,
+            "different_pixels_ratio": 0.006076388888888889,
+            "passed": true
+          }
+        ],
+        "e2e": [
+          {
+            "name": "criar_autor_e_livro_associado",
+            "passed": true
+          },
+          {
+            "name": "busca_por_titulo_parcial",
+            "passed": true
+          },
+          {
+            "name": "formulario_rejeita_titulo_vazio",
+            "passed": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "execution_id": "t1_biblioteca_restricted_seed2rep2_1789391979",
+    "task": "t1_biblioteca",
+    "mode": "restricted",
+    "seed": 2,
+    "repetition": 2,
+    "provider": "deepseek",
+    "status": "malsucedida:max_iterations",
+    "elapsed_s": 277.93039178848267,
+    "total_cost_usd": 0.1347486,
+    "total_input_tokens": 452634,
+    "total_output_tokens": 19074,
+    "total_cache_tokens": 166400,
+    "final_metrics": {}
+  },
+  {
+    "execution_id": "t1_biblioteca_restricted_seed3rep3_1789392260",
+    "task": "t1_biblioteca",
+    "mode": "restricted",
+    "seed": 3,
+    "repetition": 3,
+    "provider": "deepseek",
+    "status": "erro_infraestrutura:Error code: 400 - {'error': {'message': \"Invalid 'messages[27].tool_calls': empty array. Expected an array with minimum length 1, but got an empty array instead.\", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}",
+    "elapsed_s": 333.5118098258972,
+    "total_cost_usd": 0.12370148000000002,
+    "total_input_tokens": 414554,
+    "total_output_tokens": 18158,
+    "total_cache_tokens": 171520,
+    "final_metrics": {}
+  },
+  {
+    "execution_id": "t1_biblioteca_baseline_seed3rep3_1789392597",
+    "task": "t1_biblioteca",
+    "mode": "baseline",
+    "seed": 3,
+    "repetition": 3,
+    "provider": "deepseek",
+    "status": "concluida",
+    "elapsed_s": 140.67518019676208,
+    "total_cost_usd": 0.038130260000000006,
+    "total_input_tokens": 126977,
+    "total_output_tokens": 6135,
+    "total_cache_tokens": 72061,
+    "final_metrics": {
+      "acceptance_criteria_total": 12,
+      "acceptance_criteria_passed": 12,
+      "acceptance_criteria_ratio": 1.0,
+      "passed": false,
+      "dom_assertions_total": 10,
+      "dom_assertions_passed": 0,
+      "visual_captures_total": 0,
+      "visual_captures_passed": 0,
+      "e2e_total": 3,
+      "e2e_failures": 3,
+      "diff_report": {
+        "dom": [
+          {
+            "route": "Listagem de livros",
+            "selector": "table",
+            "found": false,
+            "error": "Page.goto: net::ERR_EMPTY_RESPONSE at http://localhost:63278/books\nCall log:\n  - navigating to \"http://localhost:63278/books\", waiting until \"load\"\n"
+          },
+          {
+            "route": "Listagem de livros",
+            "selector": "a[href='/books/new'], #new-book-link",
+            "found": false,
+            "error": "Page.goto: net::ERR_EMPTY_RESPONSE at http://localhost:63278/books\nCall log:\n  - navigating to \"http://localhost:63278/books\", waiting until \"load\"\n"
+          },
+          {
+            "route": "Listagem de livros",
+            "selector": "input[name='query']",
+            "found": false,
+            "error": "Page.goto: net::ERR_EMPTY_RESPONSE at http://localhost:63278/books\nCall log:\n  - navigating to \"http://localhost:63278/books\", waiting until \"load\"\n"
+          },
+          {
+            "route": "Novo livro",
+            "selector": "form",
+            "found": false,
+            "error": "Page.goto: net::ERR_EMPTY_RESPONSE at http://localhost:63278/books/new\nCall log:\n  - navigating to \"http://localhost:63278/books/new\", waiting until \"load\"\n"
+          },
+          {
+            "route": "Novo livro",
+            "selector": "#book_title, input[name='book[title]']",
+            "found": false,
+            "error": "Page.goto: net::ERR_EMPTY_RESPONSE at http://localhost:63278/books/new\nCall log:\n  - navigating to \"http://localhost:63278/books/new\", waiting until \"load\"\n"
+          },
+          {
+            "route": "Novo livro",
+            "selector": "#book_author_id, select[name='book[author_id]']",
+            "found": false,
+            "error": "Page.goto: net::ERR_EMPTY_RESPONSE at http://localhost:63278/books/new\nCall log:\n  - navigating to \"http://localhost:63278/books/new\", waiting until \"load\"\n"
+          },
+          {
+            "route": "Listagem de autores",
+            "selector": "table",
+            "found": false,
+            "error": "Page.goto: net::ERR_EMPTY_RESPONSE at http://localhost:63278/authors\nCall log:\n  - navigating to \"http://localhost:63278/authors\", waiting until \"load\"\n"
+          },
+          {
+            "route": "Listagem de autores",
+            "selector": "a[href='/authors/new'], #new-author-link",
+            "found": false,
+            "error": "Page.goto: net::ERR_EMPTY_RESPONSE at http://localhost:63278/authors\nCall log:\n  - navigating to \"http://localhost:63278/authors\", waiting until \"load\"\n"
+          },
+          {
+            "route": "Novo autor",
+            "selector": "form",
+            "found": false,
+            "error": "Page.goto: net::ERR_EMPTY_RESPONSE at http://localhost:63278/authors/new\nCall log:\n  - navigating to \"http://localhost:63278/authors/new\", waiting until \"load\"\n"
+          },
+          {
+            "route": "Novo autor",
+            "selector": "#author_name, input[name='author[name]']",
+            "found": false,
+            "error": "Page.goto: net::ERR_EMPTY_RESPONSE at http://localhost:63278/authors/new\nCall log:\n  - navigating to \"http://localhost:63278/authors/new\", waiting until \"load\"\n"
+          }
+        ],
+        "visual": [],
+        "e2e": [
+          {
+            "name": "criar_autor_e_livro_associado",
+            "passed": false,
+            "error": "Page.goto: net::ERR_EMPTY_RESPONSE at http://localhost:63278/authors/new\nCall log:\n  - navigating to \"http://localhost:63278/authors/new\", waiting until \"load\"\n"
+          },
+          {
+            "name": "busca_por_titulo_parcial",
+            "passed": false,
+            "error": "Page.goto: net::ERR_EMPTY_RESPONSE at http://localhost:63278/books?query=Capit%C3%A3es\nCall log:\n  - navigating to \"http://localhost:63278/books?query=Capit%C3%A3es\", waiting until \"load\"\n"
+          },
+          {
+            "name": "formulario_rejeita_titulo_vazio",
+            "passed": false,
+            "error": "Page.goto: net::ERR_EMPTY_RESPONSE at http://localhost:63278/books/new\nCall log:\n  - navigating to \"http://localhost:63278/books/new\", waiting until \"load\"\n"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "execution_id": "t1_biblioteca_baseline_seed4rep4_1789392741",
+    "task": "t1_biblioteca",
+    "mode": "baseline",
+    "seed": 4,
+    "repetition": 4,
+    "provider": "deepseek",
+    "status": "concluida",
+    "elapsed_s": 159.04939079284668,
+    "total_cost_usd": 0.03405640000000001,
+    "total_input_tokens": 111337,
+    "total_output_tokens": 6862,
+    "total_cache_tokens": 60285,
+    "final_metrics": {
+      "acceptance_criteria_total": 12,
+      "acceptance_criteria_passed": 12,
+      "acceptance_criteria_ratio": 1.0,
+      "passed": false,
+      "dom_assertions_total": 10,
+      "dom_assertions_passed": 8,
+      "visual_captures_total": 4,
+      "visual_captures_passed": 2,
+      "e2e_total": 3,
+      "e2e_failures": 0,
+      "diff_report": {
+        "dom": [
+          {
+            "route": "Listagem de livros",
+            "selector": "table",
+            "found": false
+          },
+          {
+            "route": "Listagem de livros",
+            "selector": "a[href='/books/new'], #new-book-link",
+            "found": true
+          },
+          {
+            "route": "Listagem de livros",
+            "selector": "input[name='query']",
+            "found": true
+          },
+          {
+            "route": "Novo livro",
+            "selector": "form",
+            "found": true
+          },
+          {
+            "route": "Novo livro",
+            "selector": "#book_title, input[name='book[title]']",
+            "found": true
+          },
+          {
+            "route": "Novo livro",
+            "selector": "#book_author_id, select[name='book[author_id]']",
+            "found": true
+          },
+          {
+            "route": "Listagem de autores",
+            "selector": "table",
+            "found": false
+          },
+          {
+            "route": "Listagem de autores",
+            "selector": "a[href='/authors/new'], #new-author-link",
+            "found": true
+          },
+          {
+            "route": "Novo autor",
+            "selector": "form",
+            "found": true
+          },
+          {
+            "route": "Novo autor",
+            "selector": "#author_name, input[name='author[name]']",
+            "found": true
+          }
+        ],
+        "visual": [
+          {
+            "route": "Listagem de livros",
+            "ssim": 0.7866326614298387,
+            "different_pixels_ratio": 0.12261284722222222,
+            "passed": false
+          },
+          {
+            "route": "Novo livro",
+            "ssim": 0.9517614405905703,
+            "different_pixels_ratio": 0.0078125,
+            "passed": true
+          },
+          {
+            "route": "Listagem de autores",
+            "ssim": 0.8027623591917084,
+            "different_pixels_ratio": 0.11219618055555555,
+            "passed": false
+          },
+          {
+            "route": "Novo autor",
+            "ssim": 0.9705823282311633,
+            "different_pixels_ratio": 0.006076388888888889,
+            "passed": true
+          }
+        ],
+        "e2e": [
+          {
+            "name": "criar_autor_e_livro_associado",
+            "passed": true
+          },
+          {
+            "name": "busca_por_titulo_parcial",
+            "passed": true
+          },
+          {
+            "name": "formulario_rejeita_titulo_vazio",
+            "passed": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "execution_id": "t1_biblioteca_restricted_seed4rep4_1789392903",
+    "task": "t1_biblioteca",
+    "mode": "restricted",
+    "seed": 4,
+    "repetition": 4,
+    "provider": "deepseek",
+    "status": "malsucedida:max_dom_visual_passes",
+    "elapsed_s": 712.8814518451691,
+    "total_cost_usd": 0.26147618,
+    "total_input_tokens": 879908,
+    "total_output_tokens": 35957,
+    "total_cache_tokens": 188544,
+    "final_metrics": {}
+  },
+  {
+    "execution_id": "t1_biblioteca_restricted_seed5rep5_1789393620",
+    "task": "t1_biblioteca",
+    "mode": "restricted",
+    "seed": 5,
+    "repetition": 5,
+    "provider": "deepseek",
+    "status": "erro_infraestrutura:Error code: 400 - {'error': {'message': \"Invalid 'messages[27].tool_calls': empty array. Expected an array with minimum length 1, but got an empty array instead.\", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}",
+    "elapsed_s": 131.804527759552,
+    "total_cost_usd": 0.046379900000000016,
+    "total_input_tokens": 150638,
+    "total_output_tokens": 10003,
+    "total_cache_tokens": 78208,
+    "final_metrics": {}
+  },
+  {
+    "execution_id": "t1_biblioteca_baseline_seed5rep5_1789393755",
+    "task": "t1_biblioteca",
+    "mode": "baseline",
+    "seed": 5,
+    "repetition": 5,
+    "provider": "deepseek",
+    "status": "concluida",
+    "elapsed_s": 184.49646425247192,
+    "total_cost_usd": 0.043301860000000005,
+    "total_input_tokens": 143032,
+    "total_output_tokens": 7745,
+    "total_cache_tokens": 80637,
+    "final_metrics": {
+      "acceptance_criteria_total": 12,
+      "acceptance_criteria_passed": 12,
+      "acceptance_criteria_ratio": 1.0,
+      "passed": false,
+      "dom_assertions_total": 10,
+      "dom_assertions_passed": 10,
+      "visual_captures_total": 4,
+      "visual_captures_passed": 2,
+      "e2e_total": 3,
+      "e2e_failures": 0,
+      "diff_report": {
+        "dom": [
+          {
+            "route": "Listagem de livros",
+            "selector": "table",
+            "found": true
+          },
+          {
+            "route": "Listagem de livros",
+            "selector": "a[href='/books/new'], #new-book-link",
+            "found": true
+          },
+          {
+            "route": "Listagem de livros",
+            "selector": "input[name='query']",
+            "found": true
+          },
+          {
+            "route": "Novo livro",
+            "selector": "form",
+            "found": true
+          },
+          {
+            "route": "Novo livro",
+            "selector": "#book_title, input[name='book[title]']",
+            "found": true
+          },
+          {
+            "route": "Novo livro",
+            "selector": "#book_author_id, select[name='book[author_id]']",
+            "found": true
+          },
+          {
+            "route": "Listagem de autores",
+            "selector": "table",
+            "found": true
+          },
+          {
+            "route": "Listagem de autores",
+            "selector": "a[href='/authors/new'], #new-author-link",
+            "found": true
+          },
+          {
+            "route": "Novo autor",
+            "selector": "form",
+            "found": true
+          },
+          {
+            "route": "Novo autor",
+            "selector": "#author_name, input[name='author[name]']",
+            "found": true
+          }
+        ],
+        "visual": [
+          {
+            "route": "Listagem de livros",
+            "ssim": 0.7783330962066736,
+            "different_pixels_ratio": 0.12022569444444445,
+            "passed": false
+          },
+          {
+            "route": "Novo livro",
+            "ssim": 0.9517278613115142,
+            "different_pixels_ratio": 0.007703993055555556,
+            "passed": true
+          },
+          {
+            "route": "Listagem de autores",
+            "ssim": 0.8099394632074052,
+            "different_pixels_ratio": 0.109375,
+            "passed": false
+          },
+          {
+            "route": "Novo autor",
+            "ssim": 0.9708749545753437,
+            "different_pixels_ratio": 0.006076388888888889,
+            "passed": true
+          }
+        ],
+        "e2e": [
+          {
+            "name": "criar_autor_e_livro_associado",
+            "passed": true
+          },
+          {
+            "name": "busca_por_titulo_parcial",
+            "passed": true
+          },
+          {
+            "name": "formulario_rejeita_titulo_vazio",
+            "passed": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "execution_id": "t2_dashboard_restricted_seed1rep1_1789393943",
+    "task": "t2_dashboard",
+    "mode": "restricted",
+    "seed": 1,
+    "repetition": 1,
+    "provider": "deepseek",
+    "status": "erro_infraestrutura:Error code: 400 - {'error': {'message': \"Invalid 'messages[27].tool_calls': empty array. Expected an array with minimum length 1, but got an empty array instead.\", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}",
+    "elapsed_s": 531.4585404396057,
+    "total_cost_usd": 0.20674010000000004,
+    "total_input_tokens": 702584,
+    "total_output_tokens": 23849,
+    "total_cache_tokens": 158720,
+    "final_metrics": {}
+  },
+  {
+    "execution_id": "t2_dashboard_baseline_seed1rep1_1789394478",
+    "task": "t2_dashboard",
+    "mode": "baseline",
+    "seed": 1,
+    "repetition": 1,
+    "provider": "deepseek",
+    "status": "concluida",
+    "elapsed_s": 139.94875478744507,
+    "total_cost_usd": 0.04451174000000001,
+    "total_input_tokens": 149411,
+    "total_output_tokens": 6373,
+    "total_cache_tokens": 70272,
+    "final_metrics": {
+      "acceptance_criteria_total": 7,
+      "acceptance_criteria_passed": 7,
+      "acceptance_criteria_ratio": 1.0,
+      "passed": false,
+      "dom_assertions_total": 7,
+      "dom_assertions_passed": 7,
+      "visual_captures_total": 1,
+      "visual_captures_passed": 0,
+      "e2e_total": 2,
+      "e2e_failures": 0,
+      "diff_report": {
+        "dom": [
+          {
+            "route": "Dashboard",
+            "selector": "#dashboard",
+            "found": true
+          },
+          {
+            "route": "Dashboard",
+            "selector": "#metric-total",
+            "found": true
+          },
+          {
+            "route": "Dashboard",
+            "selector": "#metric-count",
+            "found": true
+          },
+          {
+            "route": "Dashboard",
+            "selector": "#metric-average",
+            "found": true
+          },
+          {
+            "route": "Dashboard",
+            "selector": "#filter-form",
+            "found": true
+          },
+          {
+            "route": "Dashboard",
+            "selector": "input[name='start_date']",
+            "found": true
+          },
+          {
+            "route": "Dashboard",
+            "selector": "input[name='end_date']",
+            "found": true
+          }
+        ],
+        "visual": [
+          {
+            "route": "Dashboard",
+            "ssim": 0.6444702899831267,
+            "different_pixels_ratio": 0.1521267361111111,
+            "passed": false
+          }
+        ],
+        "e2e": [
+          {
+            "name": "dashboard_carrega_com_indicadores",
+            "passed": true
+          },
+          {
+            "name": "filtro_por_data_via_formulario",
+            "passed": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "execution_id": "t2_dashboard_baseline_seed2rep2_1789394621",
+    "task": "t2_dashboard",
+    "mode": "baseline",
+    "seed": 2,
+    "repetition": 2,
+    "provider": "deepseek",
+    "status": "concluida",
+    "elapsed_s": 143.92102718353271,
+    "total_cost_usd": 0.047346600000000016,
+    "total_input_tokens": 159000,
+    "total_output_tokens": 6730,
+    "total_cache_tokens": 73856,
+    "final_metrics": {
+      "acceptance_criteria_total": 7,
+      "acceptance_criteria_passed": 7,
+      "acceptance_criteria_ratio": 1.0,
+      "passed": false,
+      "dom_assertions_total": 7,
+      "dom_assertions_passed": 7,
+      "visual_captures_total": 1,
+      "visual_captures_passed": 0,
+      "e2e_total": 2,
+      "e2e_failures": 0,
+      "diff_report": {
+        "dom": [
+          {
+            "route": "Dashboard",
+            "selector": "#dashboard",
+            "found": true
+          },
+          {
+            "route": "Dashboard",
+            "selector": "#metric-total",
+            "found": true
+          },
+          {
+            "route": "Dashboard",
+            "selector": "#metric-count",
+            "found": true
+          },
+          {
+            "route": "Dashboard",
+            "selector": "#metric-average",
+            "found": true
+          },
+          {
+            "route": "Dashboard",
+            "selector": "#filter-form",
+            "found": true
+          },
+          {
+            "route": "Dashboard",
+            "selector": "input[name='start_date']",
+            "found": true
+          },
+          {
+            "route": "Dashboard",
+            "selector": "input[name='end_date']",
+            "found": true
+          }
+        ],
+        "visual": [
+          {
+            "route": "Dashboard",
+            "ssim": 0.5806387888669509,
+            "different_pixels_ratio": 0.1644965277777778,
+            "passed": false
+          }
+        ],
+        "e2e": [
+          {
+            "name": "dashboard_carrega_com_indicadores",
+            "passed": true
+          },
+          {
+            "name": "filtro_por_data_via_formulario",
+            "passed": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "execution_id": "t2_dashboard_restricted_seed2rep2_1789394768",
+    "task": "t2_dashboard",
+    "mode": "restricted",
+    "seed": 2,
+    "repetition": 2,
+    "provider": "deepseek",
+    "status": "malsucedida:max_dom_visual_passes",
+    "elapsed_s": 346.9724361896515,
+    "total_cost_usd": 0.10699388000000003,
+    "total_input_tokens": 361268,
+    "total_output_tokens": 13902,
+    "total_cache_tokens": 116607,
+    "final_metrics": {}
+  },
+  {
+    "execution_id": "t2_dashboard_restricted_seed3rep3_1789395118",
+    "task": "t2_dashboard",
+    "mode": "restricted",
+    "seed": 3,
+    "repetition": 3,
+    "provider": "deepseek",
+    "status": "malsucedida:max_dom_visual_passes",
+    "elapsed_s": 367.45754408836365,
+    "total_cost_usd": 0.12450129999999998,
+    "total_input_tokens": 416599,
+    "total_output_tokens": 18699,
+    "total_cache_tokens": 117631,
+    "final_metrics": {}
+  },
+  {
+    "execution_id": "t2_dashboard_baseline_seed3rep3_1789395489",
+    "task": "t2_dashboard",
+    "mode": "baseline",
+    "seed": 3,
+    "repetition": 3,
+    "provider": "deepseek",
+    "status": "concluida",
+    "elapsed_s": 120.95958662033081,
+    "total_cost_usd": 0.03621198,
+    "total_input_tokens": 120735,
+    "total_output_tokens": 5729,
+    "total_cache_tokens": 65664,
+    "final_metrics": {
+      "acceptance_criteria_total": 7,
+      "acceptance_criteria_passed": 7,
+      "acceptance_criteria_ratio": 1.0,
+      "passed": false,
+      "dom_assertions_total": 7,
+      "dom_assertions_passed": 7,
+      "visual_captures_total": 1,
+      "visual_captures_passed": 0,
+      "e2e_total": 2,
+      "e2e_failures": 0,
+      "diff_report": {
+        "dom": [
+          {
+            "route": "Dashboard",
+            "selector": "#dashboard",
+            "found": true
+          },
+          {
+            "route": "Dashboard",
+            "selector": "#metric-total",
+            "found": true
+          },
+          {
+            "route": "Dashboard",
+            "selector": "#metric-count",
+            "found": true
+          },
+          {
+            "route": "Dashboard",
+            "selector": "#metric-average",
+            "found": true
+          },
+          {
+            "route": "Dashboard",
+            "selector": "#filter-form",
+            "found": true
+          },
+          {
+            "route": "Dashboard",
+            "selector": "input[name='start_date']",
+            "found": true
+          },
+          {
+            "route": "Dashboard",
+            "selector": "input[name='end_date']",
+            "found": true
+          }
+        ],
+        "visual": [
+          {
+            "route": "Dashboard",
+            "ssim": 0.6958526302586296,
+            "different_pixels_ratio": 0.11751302083333333,
+            "passed": false
+          }
+        ],
+        "e2e": [
+          {
+            "name": "dashboard_carrega_com_indicadores",
+            "passed": true
+          },
+          {
+            "name": "filtro_por_data_via_formulario",
+            "passed": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "execution_id": "t2_dashboard_baseline_seed4rep4_1789395613",
+    "task": "t2_dashboard",
+    "mode": "baseline",
+    "seed": 4,
+    "repetition": 4,
+    "provider": "deepseek",
+    "status": "concluida",
+    "elapsed_s": 126.24791622161865,
+    "total_cost_usd": 0.040681480000000006,
+    "total_input_tokens": 136141,
+    "total_output_tokens": 6100,
+    "total_cache_tokens": 69888,
+    "final_metrics": {
+      "acceptance_criteria_total": 7,
+      "acceptance_criteria_passed": 7,
+      "acceptance_criteria_ratio": 1.0,
+      "passed": false,
+      "dom_assertions_total": 7,
+      "dom_assertions_passed": 7,
+      "visual_captures_total": 1,
+      "visual_captures_passed": 0,
+      "e2e_total": 2,
+      "e2e_failures": 0,
+      "diff_report": {
+        "dom": [
+          {
+            "route": "Dashboard",
+            "selector": "#dashboard",
+            "found": true
+          },
+          {
+            "route": "Dashboard",
+            "selector": "#metric-total",
+            "found": true
+          },
+          {
+            "route": "Dashboard",
+            "selector": "#metric-count",
+            "found": true
+          },
+          {
+            "route": "Dashboard",
+            "selector": "#metric-average",
+            "found": true
+          },
+          {
+            "route": "Dashboard",
+            "selector": "#filter-form",
+            "found": true
+          },
+          {
+            "route": "Dashboard",
+            "selector": "input[name='start_date']",
+            "found": true
+          },
+          {
+            "route": "Dashboard",
+            "selector": "input[name='end_date']",
+            "found": true
+          }
+        ],
+        "visual": [
+          {
+            "route": "Dashboard",
+            "ssim": 0.5906173210789779,
+            "different_pixels_ratio": 0.1615668402777778,
+            "passed": false
+          }
+        ],
+        "e2e": [
+          {
+            "name": "dashboard_carrega_com_indicadores",
+            "passed": true
+          },
+          {
+            "name": "filtro_por_data_via_formulario",
+            "passed": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "execution_id": "t2_dashboard_restricted_seed4rep4_1789395742",
+    "task": "t2_dashboard",
+    "mode": "restricted",
+    "seed": 4,
+    "repetition": 4,
+    "provider": "deepseek",
+    "status": "malsucedida:max_dom_visual_passes",
+    "elapsed_s": 323.4698407649994,
+    "total_cost_usd": 0.09323762,
+    "total_input_tokens": 312260,
+    "total_output_tokens": 13821,
+    "total_cache_tokens": 125439,
+    "final_metrics": {}
+  },
+  {
+    "execution_id": "t2_dashboard_restricted_seed5rep5_1789396069",
+    "task": "t2_dashboard",
+    "mode": "restricted",
+    "seed": 5,
+    "repetition": 5,
+    "provider": "deepseek",
+    "status": "malsucedida:max_dom_visual_passes",
+    "elapsed_s": 309.5411036014557,
+    "total_cost_usd": 0.09008622000000006,
+    "total_input_tokens": 303270,
+    "total_output_tokens": 12311,
+    "total_cache_tokens": 107135,
+    "final_metrics": {}
+  },
+  {
+    "execution_id": "t2_dashboard_baseline_seed5rep5_1789396381",
+    "task": "t2_dashboard",
+    "mode": "baseline",
+    "seed": 5,
+    "repetition": 5,
+    "provider": "deepseek",
+    "status": "concluida",
+    "elapsed_s": 138.3154423236847,
+    "total_cost_usd": 0.046512060000000015,
+    "total_input_tokens": 156051,
+    "total_output_tokens": 6709,
+    "total_cache_tokens": 73856,
+    "final_metrics": {
+      "acceptance_criteria_total": 7,
+      "acceptance_criteria_passed": 7,
+      "acceptance_criteria_ratio": 1.0,
+      "passed": false,
+      "dom_assertions_total": 7,
+      "dom_assertions_passed": 7,
+      "visual_captures_total": 1,
+      "visual_captures_passed": 0,
+      "e2e_total": 2,
+      "e2e_failures": 0,
+      "diff_report": {
+        "dom": [
+          {
+            "route": "Dashboard",
+            "selector": "#dashboard",
+            "found": true
+          },
+          {
+            "route": "Dashboard",
+            "selector": "#metric-total",
+            "found": true
+          },
+          {
+            "route": "Dashboard",
+            "selector": "#metric-count",
+            "found": true
+          },
+          {
+            "route": "Dashboard",
+            "selector": "#metric-average",
+            "found": true
+          },
+          {
+            "route": "Dashboard",
+            "selector": "#filter-form",
+            "found": true
+          },
+          {
+            "route": "Dashboard",
+            "selector": "input[name='start_date']",
+            "found": true
+          },
+          {
+            "route": "Dashboard",
+            "selector": "input[name='end_date']",
+            "found": true
+          }
+        ],
+        "visual": [
+          {
+            "route": "Dashboard",
+            "ssim": 0.6839933691523002,
+            "different_pixels_ratio": 0.12098524305555555,
+            "passed": false
+          }
+        ],
+        "e2e": [
+          {
+            "name": "dashboard_carrega_com_indicadores",
+            "passed": true
+          },
+          {
+            "name": "filtro_por_data_via_formulario",
+            "passed": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "execution_id": "t3_autenticacao_restricted_seed1rep1_1789396523",
+    "task": "t3_autenticacao",
+    "mode": "restricted",
+    "seed": 1,
+    "repetition": 1,
+    "provider": "deepseek",
+    "status": "concluida",
+    "elapsed_s": 157.43763756752014,
+    "total_cost_usd": 0.03869782,
+    "total_input_tokens": 126364,
+    "total_output_tokens": 7895,
+    "total_cache_tokens": 48000,
+    "final_metrics": {
+      "acceptance_criteria_total": 10,
+      "acceptance_criteria_passed": 10,
+      "acceptance_criteria_ratio": 1.0,
+      "passed": true,
+      "dom_assertions_total": 6,
+      "dom_assertions_passed": 6,
+      "visual_captures_total": 2,
+      "visual_captures_passed": 2,
+      "e2e_total": 3,
+      "e2e_failures": 1,
+      "diff_report": {
+        "dom": [
+          {
+            "route": "Cadastro",
+            "selector": "#signup-form",
+            "found": true
+          },
+          {
+            "route": "Cadastro",
+            "selector": "#user_email",
+            "found": true
+          },
+          {
+            "route": "Cadastro",
+            "selector": "#user_password",
+            "found": true
+          },
+          {
+            "route": "Login",
+            "selector": "#login-form",
+            "found": true
+          },
+          {
+            "route": "Login",
+            "selector": "#email",
+            "found": true
+          },
+          {
+            "route": "Login",
+            "selector": "#password",
+            "found": true
+          }
+        ],
+        "visual": [
+          {
+            "route": "Cadastro",
+            "ssim": 0.9686999779053345,
+            "different_pixels_ratio": 0.0078125,
+            "passed": true
+          },
+          {
+            "route": "Login",
+            "ssim": 0.9718872674383319,
+            "different_pixels_ratio": 0.005967881944444444,
+            "passed": true
+          }
+        ],
+        "e2e": [
+          {
+            "name": "protected_redireciona_sem_login",
+            "passed": true
+          },
+          {
+            "name": "cadastro_permite_acesso_a_area_protegida",
+            "passed": true
+          },
+          {
+            "name": "logout_bloqueia_acesso_novamente",
+            "passed": false,
+            "error": "após logout, área protegida continuou acessível"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "execution_id": "t3_autenticacao_baseline_seed1rep1_1789396683",
+    "task": "t3_autenticacao",
+    "mode": "baseline",
+    "seed": 1,
+    "repetition": 1,
+    "provider": "deepseek",
+    "status": "concluida",
+    "elapsed_s": 184.91923475265503,
+    "total_cost_usd": 0.08248939999999999,
+    "total_input_tokens": 282194,
+    "total_output_tokens": 8274,
+    "total_cache_tokens": 108928,
+    "final_metrics": {
+      "acceptance_criteria_total": 10,
+      "acceptance_criteria_passed": 10,
+      "acceptance_criteria_ratio": 1.0,
+      "passed": true,
+      "dom_assertions_total": 6,
+      "dom_assertions_passed": 6,
+      "visual_captures_total": 2,
+      "visual_captures_passed": 2,
+      "e2e_total": 3,
+      "e2e_failures": 1,
+      "diff_report": {
+        "dom": [
+          {
+            "route": "Cadastro",
+            "selector": "#signup-form",
+            "found": true
+          },
+          {
+            "route": "Cadastro",
+            "selector": "#user_email",
+            "found": true
+          },
+          {
+            "route": "Cadastro",
+            "selector": "#user_password",
+            "found": true
+          },
+          {
+            "route": "Login",
+            "selector": "#login-form",
+            "found": true
+          },
+          {
+            "route": "Login",
+            "selector": "#email",
+            "found": true
+          },
+          {
+            "route": "Login",
+            "selector": "#password",
+            "found": true
+          }
+        ],
+        "visual": [
+          {
+            "route": "Cadastro",
+            "ssim": 0.9686992022731928,
+            "different_pixels_ratio": 0.0078125,
+            "passed": true
+          },
+          {
+            "route": "Login",
+            "ssim": 0.9718617352736674,
+            "different_pixels_ratio": 0.005967881944444444,
+            "passed": true
+          }
+        ],
+        "e2e": [
+          {
+            "name": "protected_redireciona_sem_login",
+            "passed": true
+          },
+          {
+            "name": "cadastro_permite_acesso_a_area_protegida",
+            "passed": true
+          },
+          {
+            "name": "logout_bloqueia_acesso_novamente",
+            "passed": false,
+            "error": "após logout, área protegida continuou acessível"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "execution_id": "t3_autenticacao_baseline_seed2rep2_1789396871",
+    "task": "t3_autenticacao",
+    "mode": "baseline",
+    "seed": 2,
+    "repetition": 2,
+    "provider": "deepseek",
+    "status": "concluida",
+    "elapsed_s": 126.50985193252563,
+    "total_cost_usd": 0.033029920000000004,
+    "total_input_tokens": 110188,
+    "total_output_tokens": 5184,
+    "total_cache_tokens": 61440,
+    "final_metrics": {
+      "acceptance_criteria_total": 10,
+      "acceptance_criteria_passed": 10,
+      "acceptance_criteria_ratio": 1.0,
+      "passed": true,
+      "dom_assertions_total": 6,
+      "dom_assertions_passed": 6,
+      "visual_captures_total": 2,
+      "visual_captures_passed": 2,
+      "e2e_total": 3,
+      "e2e_failures": 0,
+      "diff_report": {
+        "dom": [
+          {
+            "route": "Cadastro",
+            "selector": "#signup-form",
+            "found": true
+          },
+          {
+            "route": "Cadastro",
+            "selector": "#user_email",
+            "found": true
+          },
+          {
+            "route": "Cadastro",
+            "selector": "#user_password",
+            "found": true
+          },
+          {
+            "route": "Login",
+            "selector": "#login-form",
+            "found": true
+          },
+          {
+            "route": "Login",
+            "selector": "#email",
+            "found": true
+          },
+          {
+            "route": "Login",
+            "selector": "#password",
+            "found": true
+          }
+        ],
+        "visual": [
+          {
+            "route": "Cadastro",
+            "ssim": 0.9635018124930472,
+            "different_pixels_ratio": 0.008138020833333334,
+            "passed": true
+          },
+          {
+            "route": "Login",
+            "ssim": 0.9681786014928278,
+            "different_pixels_ratio": 0.005967881944444444,
+            "passed": true
+          }
+        ],
+        "e2e": [
+          {
+            "name": "protected_redireciona_sem_login",
+            "passed": true
+          },
+          {
+            "name": "cadastro_permite_acesso_a_area_protegida",
+            "passed": true
+          },
+          {
+            "name": "logout_bloqueia_acesso_novamente",
+            "passed": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "execution_id": "t3_autenticacao_restricted_seed2rep2_1789397001",
+    "task": "t3_autenticacao",
+    "mode": "restricted",
+    "seed": 2,
+    "repetition": 2,
+    "provider": "deepseek",
+    "status": "concluida",
+    "elapsed_s": 147.44096112251282,
+    "total_cost_usd": 0.028816059999999998,
+    "total_input_tokens": 93949,
+    "total_output_tokens": 5977,
+    "total_cache_tokens": 49792,
+    "final_metrics": {
+      "acceptance_criteria_total": 10,
+      "acceptance_criteria_passed": 10,
+      "acceptance_criteria_ratio": 1.0,
+      "passed": true,
+      "dom_assertions_total": 6,
+      "dom_assertions_passed": 6,
+      "visual_captures_total": 2,
+      "visual_captures_passed": 2,
+      "e2e_total": 3,
+      "e2e_failures": 1,
+      "diff_report": {
+        "dom": [
+          {
+            "route": "Cadastro",
+            "selector": "#signup-form",
+            "found": true
+          },
+          {
+            "route": "Cadastro",
+            "selector": "#user_email",
+            "found": true
+          },
+          {
+            "route": "Cadastro",
+            "selector": "#user_password",
+            "found": true
+          },
+          {
+            "route": "Login",
+            "selector": "#login-form",
+            "found": true
+          },
+          {
+            "route": "Login",
+            "selector": "#email",
+            "found": true
+          },
+          {
+            "route": "Login",
+            "selector": "#password",
+            "found": true
+          }
+        ],
+        "visual": [
+          {
+            "route": "Cadastro",
+            "ssim": 0.9686648178615839,
+            "different_pixels_ratio": 0.0078125,
+            "passed": true
+          },
+          {
+            "route": "Login",
+            "ssim": 0.9718907262281096,
+            "different_pixels_ratio": 0.005967881944444444,
+            "passed": true
+          }
+        ],
+        "e2e": [
+          {
+            "name": "protected_redireciona_sem_login",
+            "passed": true
+          },
+          {
+            "name": "cadastro_permite_acesso_a_area_protegida",
+            "passed": true
+          },
+          {
+            "name": "logout_bloqueia_acesso_novamente",
+            "passed": false,
+            "error": "após logout, área protegida continuou acessível"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "execution_id": "t3_autenticacao_restricted_seed3rep3_1789397151",
+    "task": "t3_autenticacao",
+    "mode": "restricted",
+    "seed": 3,
+    "repetition": 3,
+    "provider": "deepseek",
+    "status": "concluida",
+    "elapsed_s": 160.32360172271729,
+    "total_cost_usd": 0.03835762,
+    "total_input_tokens": 126394,
+    "total_output_tokens": 7065,
+    "total_cache_tokens": 66816,
+    "final_metrics": {
+      "acceptance_criteria_total": 10,
+      "acceptance_criteria_passed": 10,
+      "acceptance_criteria_ratio": 1.0,
+      "passed": true,
+      "dom_assertions_total": 6,
+      "dom_assertions_passed": 6,
+      "visual_captures_total": 2,
+      "visual_captures_passed": 2,
+      "e2e_total": 3,
+      "e2e_failures": 1,
+      "diff_report": {
+        "dom": [
+          {
+            "route": "Cadastro",
+            "selector": "#signup-form",
+            "found": true
+          },
+          {
+            "route": "Cadastro",
+            "selector": "#user_email",
+            "found": true
+          },
+          {
+            "route": "Cadastro",
+            "selector": "#user_password",
+            "found": true
+          },
+          {
+            "route": "Login",
+            "selector": "#login-form",
+            "found": true
+          },
+          {
+            "route": "Login",
+            "selector": "#email",
+            "found": true
+          },
+          {
+            "route": "Login",
+            "selector": "#password",
+            "found": true
+          }
+        ],
+        "visual": [
+          {
+            "route": "Cadastro",
+            "ssim": 0.9683375858496455,
+            "different_pixels_ratio": 0.007595486111111111,
+            "passed": true
+          },
+          {
+            "route": "Login",
+            "ssim": 0.971848364422113,
+            "different_pixels_ratio": 0.005967881944444444,
+            "passed": true
+          }
+        ],
+        "e2e": [
+          {
+            "name": "protected_redireciona_sem_login",
+            "passed": true
+          },
+          {
+            "name": "cadastro_permite_acesso_a_area_protegida",
+            "passed": true
+          },
+          {
+            "name": "logout_bloqueia_acesso_novamente",
+            "passed": false,
+            "error": "após logout, área protegida continuou acessível"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "execution_id": "t3_autenticacao_baseline_seed3rep3_1789397315",
+    "task": "t3_autenticacao",
+    "mode": "baseline",
+    "seed": 3,
+    "repetition": 3,
+    "provider": "deepseek",
+    "status": "erro_infraestrutura:'NoneType' object is not subscriptable",
+    "elapsed_s": 150.68354964256287,
+    "total_cost_usd": 0.05573974000000003,
+    "total_input_tokens": 190522,
+    "total_output_tokens": 5699,
+    "total_cache_tokens": 83712,
+    "final_metrics": {}
+  },
+  {
+    "execution_id": "t3_autenticacao_baseline_seed4rep4_1789397469",
+    "task": "t3_autenticacao",
+    "mode": "baseline",
+    "seed": 4,
+    "repetition": 4,
+    "provider": "deepseek",
+    "status": "concluida",
+    "elapsed_s": 155.02513599395752,
+    "total_cost_usd": 0.05202218,
+    "total_input_tokens": 175634,
+    "total_output_tokens": 6773,
+    "total_cache_tokens": 81152,
+    "final_metrics": {
+      "acceptance_criteria_total": 10,
+      "acceptance_criteria_passed": 10,
+      "acceptance_criteria_ratio": 1.0,
+      "passed": true,
+      "dom_assertions_total": 6,
+      "dom_assertions_passed": 6,
+      "visual_captures_total": 2,
+      "visual_captures_passed": 2,
+      "e2e_total": 3,
+      "e2e_failures": 0,
+      "diff_report": {
+        "dom": [
+          {
+            "route": "Cadastro",
+            "selector": "#signup-form",
+            "found": true
+          },
+          {
+            "route": "Cadastro",
+            "selector": "#user_email",
+            "found": true
+          },
+          {
+            "route": "Cadastro",
+            "selector": "#user_password",
+            "found": true
+          },
+          {
+            "route": "Login",
+            "selector": "#login-form",
+            "found": true
+          },
+          {
+            "route": "Login",
+            "selector": "#email",
+            "found": true
+          },
+          {
+            "route": "Login",
+            "selector": "#password",
+            "found": true
+          }
+        ],
+        "visual": [
+          {
+            "route": "Cadastro",
+            "ssim": 0.9686992022731928,
+            "different_pixels_ratio": 0.0078125,
+            "passed": true
+          },
+          {
+            "route": "Login",
+            "ssim": 0.9718617352736674,
+            "different_pixels_ratio": 0.005967881944444444,
+            "passed": true
+          }
+        ],
+        "e2e": [
+          {
+            "name": "protected_redireciona_sem_login",
+            "passed": true
+          },
+          {
+            "name": "cadastro_permite_acesso_a_area_protegida",
+            "passed": true
+          },
+          {
+            "name": "logout_bloqueia_acesso_novamente",
+            "passed": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "execution_id": "t3_autenticacao_restricted_seed4rep4_1789397627",
+    "task": "t3_autenticacao",
+    "mode": "restricted",
+    "seed": 4,
+    "repetition": 4,
+    "provider": "deepseek",
+    "status": "erro_infraestrutura:'NoneType' object is not subscriptable",
+    "elapsed_s": 200.0649607181549,
+    "total_cost_usd": 0.07839776,
+    "total_input_tokens": 264677,
+    "total_output_tokens": 10210,
+    "total_cache_tokens": 107520,
+    "final_metrics": {}
+  },
+  {
+    "execution_id": "t3_autenticacao_restricted_seed5rep5_1789397830",
+    "task": "t3_autenticacao",
+    "mode": "restricted",
+    "seed": 5,
+    "repetition": 5,
+    "provider": "deepseek",
+    "status": "concluida",
+    "elapsed_s": 195.3549931049347,
+    "total_cost_usd": 0.06281212000000001,
+    "total_input_tokens": 210013,
+    "total_output_tokens": 9544,
+    "total_cache_tokens": 97408,
+    "final_metrics": {
+      "acceptance_criteria_total": 10,
+      "acceptance_criteria_passed": 10,
+      "acceptance_criteria_ratio": 1.0,
+      "passed": true,
+      "dom_assertions_total": 6,
+      "dom_assertions_passed": 6,
+      "visual_captures_total": 2,
+      "visual_captures_passed": 2,
+      "e2e_total": 3,
+      "e2e_failures": 1,
+      "diff_report": {
+        "dom": [
+          {
+            "route": "Cadastro",
+            "selector": "#signup-form",
+            "found": true
+          },
+          {
+            "route": "Cadastro",
+            "selector": "#user_email",
+            "found": true
+          },
+          {
+            "route": "Cadastro",
+            "selector": "#user_password",
+            "found": true
+          },
+          {
+            "route": "Login",
+            "selector": "#login-form",
+            "found": true
+          },
+          {
+            "route": "Login",
+            "selector": "#email",
+            "found": true
+          },
+          {
+            "route": "Login",
+            "selector": "#password",
+            "found": true
+          }
+        ],
+        "visual": [
+          {
+            "route": "Cadastro",
+            "ssim": 0.9686992022731928,
+            "different_pixels_ratio": 0.0078125,
+            "passed": true
+          },
+          {
+            "route": "Login",
+            "ssim": 0.9718617352736674,
+            "different_pixels_ratio": 0.005967881944444444,
+            "passed": true
+          }
+        ],
+        "e2e": [
+          {
+            "name": "protected_redireciona_sem_login",
+            "passed": true
+          },
+          {
+            "name": "cadastro_permite_acesso_a_area_protegida",
+            "passed": true
+          },
+          {
+            "name": "logout_bloqueia_acesso_novamente",
+            "passed": false,
+            "error": "após logout, área protegida continuou acessível"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "execution_id": "t3_autenticacao_baseline_seed5rep5_1789398029",
+    "task": "t3_autenticacao",
+    "mode": "baseline",
+    "seed": 5,
+    "repetition": 5,
+    "provider": "deepseek",
+    "status": "erro_infraestrutura:'NoneType' object is not subscriptable",
+    "elapsed_s": 143.26684498786926,
+    "total_cost_usd": 0.06487572,
+    "total_input_tokens": 221613,
+    "total_output_tokens": 6724,
+    "total_cache_tokens": 100352,
+    "final_metrics": {}
+  }
+]

@@ -1,0 +1,35 @@
+/*
+ * Application stylesheet.
+ */
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  margin: 2rem;
+  color: #222;
+}
+
+nav {
+  margin-bottom: 1.5rem;
+}
+
+h1 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table th,
+table td {
+  padding: 0.25rem 0.5rem;
+}
+
+.notice {
+  color: #1a7f37;
+}
+
+.alert {
+  color: #b3261e;
+}
