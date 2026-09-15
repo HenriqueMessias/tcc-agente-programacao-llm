@@ -1,0 +1,27 @@
+<h1 id="page-title">Livros</h1>
+
+<%= form_with url: books_path, method: :get, id: "search-form" do %>
+  <input type="text" name="query" id="query" value="<%= params[:query] %>" placeholder="Buscar por título">
+  <input type="submit" value="Buscar" id="search-submit">
+<% end %>
+
+<a href="/books/new" id="new-book-link">Novo livro</a>
+
+<table id="books-table">
+  <thead>
+    <tr><th>Título</th><th>Ano</th><th>Autor</th><th>Ações</th></tr>
+  </thead>
+  <tbody>
+    <% @books.each do |book| %>
+      <tr id="book-row-<%= book.id %>">
+        <td><%= book.title %></td>
+        <td><%= book.published_year %></td>
+        <td><%= book.author.name %></td>
+        <td class="actions">
+          <a href="/books/<%= book.id %>/edit" class="edit-book-link">Editar</a>
+          <%= button_to "Excluir", book_path(book), method: :delete, class: "delete-book-button", form: { data: { turbo_confirm: "Tem certeza?" } } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

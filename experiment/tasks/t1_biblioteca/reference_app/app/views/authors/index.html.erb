@@ -1,0 +1,20 @@
+<h1 id="page-title">Autores</h1>
+
+<a href="/authors/new" id="new-author-link">Novo autor</a>
+
+<table id="authors-table">
+  <thead>
+    <tr><th>Nome</th><th>Ações</th></tr>
+  </thead>
+  <tbody>
+    <% @authors.each do |author| %>
+      <tr id="author-row-<%= author.id %>">
+        <td><%= author.name %></td>
+        <td class="actions">
+          <a href="/authors/<%= author.id %>/edit" class="edit-author-link">Editar</a>
+          <%= button_to "Excluir", author_path(author), method: :delete, class: "delete-author-button", form: { data: { turbo_confirm: "Tem certeza?" } } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Autenticação</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 0; padding: 24px; background: #f5f5f5; color: #222; }
+      form { background: #fff; padding: 16px; max-width: 400px; }
+      label { display: block; margin-top: 12px; font-weight: bold; }
+      input[type=email], input[type=password], input[type=text] { width: 100%; padding: 6px; margin-top: 4px; }
+      .error { color: #b00020; background: #fde8e8; padding: 8px; margin-bottom: 12px; }
+      button, input[type=submit] { margin-top: 16px; padding: 8px 16px; background: #2b5aa0; color: #fff; border: none; cursor: pointer; }
+    </style>
+  </head>
+  <body>
+    <% if notice %><p><%= notice %></p><% end %>
+    <%= yield %>
+  </body>
+</html>

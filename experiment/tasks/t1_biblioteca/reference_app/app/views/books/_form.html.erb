@@ -1,0 +1,22 @@
+<%= form_with model: book, id: "book-form" do |f| %>
+  <% if book.errors.any? %>
+    <div class="error" id="book-errors">
+      <ul>
+        <% book.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <label for="book_title">Título</label>
+  <%= f.text_field :title, id: "book_title" %>
+
+  <label for="book_published_year">Ano de publicação</label>
+  <%= f.number_field :published_year, id: "book_published_year" %>
+
+  <label for="book_author_id">Autor</label>
+  <%= f.collection_select :author_id, @authors, :id, :name, { prompt: "Selecione um autor" }, { id: "book_author_id" } %>
+
+  <%= f.submit "Salvar", id: "book-submit" %>
+<% end %>

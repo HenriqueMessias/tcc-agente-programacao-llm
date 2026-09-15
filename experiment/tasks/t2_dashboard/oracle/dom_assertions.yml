@@ -1,0 +1,12 @@
+routes:
+  - name: "Dashboard"
+    slug: "dashboard"
+    path: "/dashboard"
+    required_selectors:
+      - "#dashboard"
+      - "#metric-total"
+      - "#metric-count"
+      - "#metric-average"
+      - "#filter-form"
+      - "input[name='start_date']"
+      - "input[name='end_date']"
