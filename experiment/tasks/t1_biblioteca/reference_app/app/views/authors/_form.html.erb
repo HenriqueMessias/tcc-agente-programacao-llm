@@ -1,0 +1,16 @@
+<%= form_with model: author, id: "author-form" do |f| %>
+  <% if author.errors.any? %>
+    <div class="error" id="author-errors">
+      <ul>
+        <% author.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <label for="author_name">Nome</label>
+  <%= f.text_field :name, id: "author_name" %>
+
+  <%= f.submit "Salvar", id: "author-submit" %>
+<% end %>

@@ -1,0 +1,39 @@
+<div id="dashboard">
+  <h1>Dashboard de vendas</h1>
+
+  <%= form_with url: dashboard_path, method: :get, id: "filter-form" do %>
+    <label>De <input type="date" name="start_date" value="<%= @start_date %>"></label>
+    <label>Até <input type="date" name="end_date" value="<%= @end_date %>"></label>
+    <input type="submit" value="Filtrar">
+  <% end %>
+
+  <div class="metrics">
+    <div class="metric-card" id="metric-total"><span>Total de vendas</span><strong><%= number_to_currency(@total) %></strong></div>
+    <div class="metric-card" id="metric-count"><span>Número de pedidos</span><strong><%= @count %></strong></div>
+    <div class="metric-card" id="metric-average"><span>Ticket médio</span><strong><%= number_to_currency(@average) %></strong></div>
+  </div>
+
+  <% if @orders.empty? %>
+    <div id="empty-state">Nenhum pedido encontrado no período selecionado.</div>
+  <% else %>
+    <div id="chart">
+      <% max_value = @by_category.values.max.to_f %>
+      <% @by_category.each do |category, sum| %>
+        <div class="chart-bar" style="height: <%= max_value.zero? ? 0 : (sum.to_f / max_value * 140).round %>px;" title="<%= category %>"><%= category %></div>
+      <% end %>
+    </div>
+
+    <table id="orders-table">
+      <thead><tr><th>Categoria</th><th>Valor</th><th>Data</th></tr></thead>
+      <tbody>
+        <% @orders.each do |order| %>
+          <tr id="order-row-<%= order.id %>">
+            <td><%= order.category %></td>
+            <td><%= number_to_currency(order.amount) %></td>
+            <td><%= order.order_date %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>

@@ -1,0 +1,11 @@
+<%= render "shared/errors", object: @author %>
+
+<%= form_with model: @author do |f| %>
+  <div>
+    <%= f.label :name, "Nome" %>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.submit "Salvar" %>
+  </div>
+<% end %>

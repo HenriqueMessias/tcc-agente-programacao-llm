@@ -1,0 +1,6 @@
+<h1><%= @book.title %></h1>
+
+<p><strong>Ano de Publicação:</strong> <%= @book.published_year %></p>
+<p><strong>Autor:</strong> <%= @book.author&.name %></p>
+
+<p><%= link_to "Editar", edit_book_path(@book) %> | <%= link_to "Voltar", books_path %></p>

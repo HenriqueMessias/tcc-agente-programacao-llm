@@ -1,0 +1,5 @@
+<div id="protected-content">
+  <h1>Área protegida</h1>
+  <p>Bem-vindo(a), <%= current_user.email %>.</p>
+  <%= button_to "Sair", logout_path, method: :delete, id: "logout-button" %>
+</div>

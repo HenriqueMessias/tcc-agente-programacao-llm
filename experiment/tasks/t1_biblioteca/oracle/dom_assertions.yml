@@ -1,0 +1,34 @@
+# Asserções de DOM por rota (seção 6.5/6.7). Os seletores usam convenções
+# de nomes de campo do Rails (ids gerados por form_with a partir dos nomes
+# dos parâmetros: book[title] -> #book_title, etc.) — a mesma convenção
+# exigida em task.md para as rotas RESTful.
+routes:
+  - name: "Listagem de livros"
+    slug: "books_index"
+    path: "/books"
+    required_selectors:
+      - "table"
+      - "a[href='/books/new'], #new-book-link"
+      - "input[name='query']"
+
+  - name: "Novo livro"
+    slug: "books_new"
+    path: "/books/new"
+    required_selectors:
+      - "form"
+      - "#book_title, input[name='book[title]']"
+      - "#book_author_id, select[name='book[author_id]']"
+
+  - name: "Listagem de autores"
+    slug: "authors_index"
+    path: "/authors"
+    required_selectors:
+      - "table"
+      - "a[href='/authors/new'], #new-author-link"
+
+  - name: "Novo autor"
+    slug: "authors_new"
+    path: "/authors/new"
+    required_selectors:
+      - "form"
+      - "#author_name, input[name='author[name]']"

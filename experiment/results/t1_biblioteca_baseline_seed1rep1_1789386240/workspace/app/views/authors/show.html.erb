@@ -1,0 +1,13 @@
+<h1><%= @author.name %></h1>
+
+<h2>Livros</h2>
+<ul>
+  <% @author.books.each do |book| %>
+    <li><%= link_to book.title, book %></li>
+  <% end %>
+</ul>
+
+<p>
+  <%= link_to "Editar", edit_author_path(@author) %> |
+  <%= link_to "Voltar", authors_path %>
+</p>

@@ -1,12 +1,24 @@
-# Claude internal
-.claude/
-
-# Test/temp files
-Untitled-*.excalidraw
-
-# Node
+/frontend/node_modules
+__pycache__/
+.venv/
+venv/
+.pytest_cache/
+compose.env
+experiment/.env
+experiment/tasks/*/reference_app/log/*.log
+experiment/tasks/*/reference_app/storage/*.sqlite3*
+experiment/tasks/*/reference_app/tmp/**
+!experiment/tasks/*/reference_app/tmp/.keep
+!experiment/tasks/*/reference_app/tmp/**/.keep
+experiment/tasks/*/reference_app/tmp/restart.txt
 node_modules/
 
-# OS
-.DS_Store
-Thumbs.db
+# Arquivos grandes que não devem ir para o repositório git compartilhado
+NLP_Turma-3_Grupo 11-20260915T033316Z-1-001.zip
+S78e0c0d67ea94f39b6509c7abcde395aF.pdf
+
+# Workspace de scratch/rascunho (renders, docx desempacotados, etc.)
+scratch_tcc/
+
+# Entregáveis da TCC — já vivem no Google Drive compartilhado, não no git
+NLP_Turma-3_Grupo 11-20260915T033316Z-1-001/

@@ -1,0 +1,16 @@
+routes:
+  - name: "Cadastro"
+    slug: "signup"
+    path: "/signup"
+    required_selectors:
+      - "#signup-form"
+      - "#user_email"
+      - "#user_password"
+
+  - name: "Login"
+    slug: "login"
+    path: "/login"
+    required_selectors:
+      - "#login-form"
+      - "#email"
+      - "#password"

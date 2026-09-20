@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Biblioteca</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application" %>
+  </head>
+
+  <body>
+    <header>
+      <h1>Biblioteca</h1>
+      <nav>
+        <%= link_to "Livros", books_path %> |
+        <%= link_to "Autores", authors_path %>
+      </nav>
+    </header>
+
+    <% if notice %>
+      <p class="notice"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
+
+    <main>
+      <%= yield %>
+    </main>
+  </body>
+</html>

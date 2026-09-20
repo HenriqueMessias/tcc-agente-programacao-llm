@@ -1,0 +1,212 @@
+:root {
+  --bg: #f4f6fb;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --accent: #2563eb;
+  --accent-soft: #dbeafe;
+  --border: #e5e7eb;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+#dashboard {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+}
+
+.dashboard-header h1 {
+  margin: 0 0 0.25rem;
+  font-size: 1.9rem;
+}
+
+.subtitle {
+  margin: 0 0 1.5rem;
+  color: var(--muted);
+}
+
+#filter-form {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.filter-fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: flex-end;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.field label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.field input[type="date"] {
+  padding: 0.5rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.field.actions {
+  flex-direction: row;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.field.actions input[type="submit"] {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.55rem 1.1rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.field.actions input[type="submit"]:hover { background: #1d4ed8; }
+
+.clear-link {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.clear-link:hover { text-decoration: underline; }
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.metric-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.metric-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.metric-value {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.chart-section, .table-section {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.chart-section h2, .table-section h2 {
+  margin: 0 0 1rem;
+  font-size: 1.1rem;
+}
+
+#chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 1.25rem;
+  min-height: 220px;
+  padding: 0.5rem 0.25rem 0;
+  border-bottom: 2px solid var(--border);
+}
+
+.chart-bar {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 200px;
+  gap: 0.35rem;
+}
+
+.chart-bar-value {
+  font-size: 0.75rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.chart-bar-fill {
+  width: 100%;
+  max-width: 70px;
+  min-height: 4px;
+  background: linear-gradient(180deg, #60a5fa, var(--accent));
+  border-radius: 6px 6px 0 0;
+}
+
+.chart-bar-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text);
+  text-align: center;
+  word-break: break-word;
+}
+
+#orders-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#orders-table th, #orders-table td {
+  text-align: left;
+  padding: 0.6rem 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+#orders-table th {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--muted);
+}
+
+#orders-table td.order-amount { text-align: right; font-variant-numeric: tabular-nums; }
+
+.empty-state {
+  background: var(--card);
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+}
+
+.empty-state h2 { margin: 0 0 0.5rem; font-size: 1.2rem; }
+.empty-state p { margin: 0; color: var(--muted); }

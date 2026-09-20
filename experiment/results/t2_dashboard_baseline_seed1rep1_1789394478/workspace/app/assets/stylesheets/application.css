@@ -1,0 +1,256 @@
+/*
+ * Application-wide styles for the sales dashboard.
+ */
+
+:root {
+  --bg: #f4f6fb;
+  --surface: #ffffff;
+  --border: #e2e6ef;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --accent: #10b981;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+}
+
+.dashboard {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 32px 20px 64px;
+}
+
+.dashboard__header h1 {
+  margin: 0 0 4px;
+  font-size: 1.9rem;
+}
+
+.dashboard__subtitle {
+  margin: 0 0 24px;
+  color: var(--muted);
+}
+
+/* Filter form */
+.filter-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+}
+
+.filter-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.filter-form__field label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.filter-form__field input[type="date"] {
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: var(--text);
+  background: #fff;
+}
+
+.filter-form__actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 9px 18px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn--primary {
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn--primary:hover {
+  background: var(--primary-dark);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--muted);
+  border-color: var(--border);
+}
+
+.btn--ghost:hover {
+  color: var(--text);
+}
+
+/* Metrics */
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.metric-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.metric-card__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.metric-card__value {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+/* Panels */
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 24px;
+}
+
+.panel__title {
+  margin: 0 0 16px;
+  font-size: 1.15rem;
+}
+
+/* Chart */
+.chart {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.chart-bar {
+  display: grid;
+  grid-template-columns: 140px 1fr 130px;
+  align-items: center;
+  gap: 12px;
+}
+
+.chart-bar__label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.chart-bar__track {
+  display: block;
+  height: 22px;
+  background: #eef1f7;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.chart-bar__fill {
+  display: block;
+  height: 100%;
+  min-width: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  border-radius: 6px;
+}
+
+.chart-bar__value {
+  font-size: 0.9rem;
+  text-align: right;
+  color: var(--muted);
+}
+
+/* Orders table */
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.orders-table th,
+.orders-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+.orders-table thead th {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--muted);
+}
+
+.orders-table td.order-amount,
+.orders-table .orders-table__total {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.orders-table tfoot th,
+.orders-table tfoot td {
+  font-weight: 700;
+  border-bottom: none;
+  border-top: 2px solid var(--border);
+}
+
+/* Empty state */
+.empty-state {
+  background: var(--surface);
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  padding: 48px 24px;
+  text-align: center;
+}
+
+.empty-state h2 {
+  margin: 0 0 8px;
+  font-size: 1.2rem;
+}
+
+.empty-state p {
+  margin: 0;
+  color: var(--muted);
+}

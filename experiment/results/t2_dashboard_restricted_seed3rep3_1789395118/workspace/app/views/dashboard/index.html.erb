@@ -1,0 +1,63 @@
+<% content_for :title, "Dashboard" %>
+
+<div id="dashboard">
+  <h1>Dashboard de Vendas</h1>
+
+  <form id="filter-form" method="get" action="/dashboard">
+    <label for="start_date">Data inicial</label>
+    <input type="date" id="start_date" name="start_date" value="<%= @start_date&.iso8601 %>">
+
+    <label for="end_date">Data final</label>
+    <input type="date" id="end_date" name="end_date" value="<%= @end_date&.iso8601 %>">
+
+    <input type="submit" value="Filtrar">
+  </form>
+
+  <div class="metrics">
+    <div class="metric">
+      <span class="metric-label">Total de vendas</span>
+      <span class="metric-value" id="metric-total"><%= number_to_currency(@total, unit: "R$ ", separator: ",", delimiter: ".") %></span>
+    </div>
+    <div class="metric">
+      <span class="metric-label">Número de pedidos</span>
+      <span class="metric-value" id="metric-count"><%= @count %></span>
+    </div>
+    <div class="metric">
+      <span class="metric-label">Ticket médio</span>
+      <span class="metric-value" id="metric-average"><%= number_to_currency(@average, unit: "R$ ", separator: ",", delimiter: ".") %></span>
+    </div>
+  </div>
+
+  <% if @orders.empty? %>
+    <div id="empty-state">Nenhum pedido no período selecionado.</div>
+  <% else %>
+    <table id="orders-table">
+      <thead>
+        <tr>
+          <th>Categoria</th>
+          <th>Valor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @orders.each do |order| %>
+          <tr>
+            <td class="order-category"><%= order.category %></td>
+            <td class="order-amount" data-amount="<%= order.amount.to_f %>"><%= number_to_currency(order.amount, unit: "R$ ", separator: ",", delimiter: ".") %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <% max_value = @by_category.values.max.to_f %>
+    <% max_value = 1.0 if max_value.zero? %>
+    <div id="chart">
+      <% @by_category.each do |category, value| %>
+        <div class="chart-row">
+          <span class="chart-label"><%= category %></span>
+          <span class="chart-bar" style="width: <%= (value.to_f / max_value * 100).round %>%"></span>
+          <span class="chart-value"><%= number_to_currency(value, unit: "R$ ", separator: ",", delimiter: ".") %></span>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

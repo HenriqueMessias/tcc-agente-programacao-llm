@@ -1,0 +1,22 @@
+<%= form_with(model: book) do |form| %>
+  <%= render "shared/errors", object: book %>
+
+  <div class="field">
+    <%= form.label :title, "Título" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :published_year, "Ano de publicação" %>
+    <%= form.number_field :published_year %>
+  </div>
+
+  <div class="field">
+    <%= form.label :author_id, "Autor" %>
+    <%= form.collection_select :author_id, Author.order(:name), :id, :name, include_blank: "Selecione um autor" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Salvar" %>
+  </div>
+<% end %>

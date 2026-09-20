@@ -1,0 +1,12 @@
+<%= form_with(model: author) do |form| %>
+  <%= render "shared/errors", object: author %>
+
+  <div class="field">
+    <%= form.label :name, "Nome" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,110 +1,38 @@
-# Agente de Apoio à Programação com LLM — Arquitetura Cognitiva Restritiva
+# Ciclos Cognitivos Restritivos em Agentes Autônomos de Desenvolvimento Web
 
-**Trabalho de Conclusão de Curso**  
-Pós-graduação em Processamento de Linguagem Natural  
-Universidade Federal de Goiás (UFG) — Programa AKCIT
+TCC (AKCIT/UFG) — Adliz Iashinishi, Diego Ferreira de Carvalho, Henrique Messias dos Santos.
 
----
+Protocolo experimental **aprovado na qualificação** (parecer de 04/08/2026): compara um ciclo cognitivo restritivo (SDD → TDD → validação automatizada de DOM) contra um fluxo livre, usando **DeepSeek V4** (modelo congelado) gerando aplicações **Ruby on Rails 8**, com oráculos independentes (RSpec + Playwright E2E + asserções de DOM + comparação visual SSIM) e análise estatística pré-registrada (Wilcoxon pareado + Hodges-Lehmann + bootstrap + correção de Holm).
 
-## Visão Geral
+A implementação real do protocolo está em [`experiment/`](experiment/).
 
-Este repositório contém os artefatos de ideação e planejamento do protótipo de um **agente de apoio à programação baseado em LLM** guiado por uma arquitetura de **metaprompting restritivo**. O trabalho investiga como a integração de SDD (Specification-Driven Development), TDD (Test-Driven Development) e Guardrails — operando em um loop cognitivo fechado — pode reduzir alucinações, regressões de código e desperdício de tokens em agentes autônomos.
+## Ver os resultados (sem rodar nada)
 
-### Pergunta de Pesquisa
+As 30 execuções definitivas (3 tarefas × 5 repetições × 2 condições) já rodaram — os dados estão neste repositório:
 
-> Em que medida a imposição de um ciclo cognitivo restritivo — integrando SDD, TDD e Guardrails como mecanismos de metaprompting arquitetural — reduz a taxa de alucinação e as regressões de código, ao mesmo tempo em que aumenta a eficiência no consumo de tokens, em agentes LLM aplicados a tarefas de geração, explicação e correção de código, quando comparado ao fluxo gerativo livre?
+- [`experiment/results_summary.csv`](experiment/results_summary.csv) — uma linha por execução, já consolidado.
+- [`experiment/analysis_output.txt`](experiment/analysis_output.txt) — a saída completa da análise estatística (H1/H2/H3, Wilcoxon, Hodges-Lehmann, Holm, modelos mistos).
+- [`experiment/results/`](experiment/results/) — o log bruto de cada execução (`<execution_id>/log.jsonl`: todo prompt, chamada de ferramenta e resultado de oráculo) e o código que o agente gerou em cada uma (`<execution_id>/workspace/`).
 
-### Hipótese (H₁)
+Resumo do que deu: nenhuma das três hipóteses se confirmou na direção esperada — a condição restritiva teve desempenho pior que o baseline nos três desfechos (conformidade funcional, falhas E2E, custo de tokens), com diferença estatisticamente significativa na direção oposta à hipotetizada. O efeito ficou concentrado nas tarefas com tabela (T1, T2); a tarefa de formulário (T3) não repetiu o padrão. Detalhes e discussão completos em `experiment/analysis_output.txt` e na dissertação.
 
-Um loop cognitivo restritivo — que intercala SDD (especificação contratual), TDD (validação contínua contra um Test Harness) e Guardrails (bloqueio de ações fora de escopo) — produz código mais correto, consome menos tokens e causa menos regressões do que o fluxo gerativo livre.
+## Reproduzir os resultados
 
----
+Todo o passo a passo — configurar ambiente, rodar o piloto, rodar as 30 execuções definitivas, consolidar num CSV e rodar a análise estatística — está em [`experiment/README.md`](experiment/README.md). Resumo rápido:
 
-## Estrutura do Repositório
-
-| Arquivo | Descrição |
-|---|---|
-| `README.md` | Este arquivo — visão geral do projeto |
-| `karpathy-agentes-disciplina-ia.md` | Fichamento: diagnóstico de Andrej Karpathy sobre agentes caóticos e os 4 pilares comportamentais (Think Before Coding, Simplicity First, Surgical Changes, Goal-Driven Execution) |
-| `arquitetura-cognitiva-restritiva-sdd-tdd-guardrails.md` | Artigo-base da proposta: arquitetura cognitiva restritiva integrando SDD, TDD, Guardrails e Test Harness com orquestradores open-source (Paperclip + Hermes) |
-| `mapa-mental-prototipo-agente-programacao.md` | Mapa mental textual com a estrutura completa da ideação: problemática, fundamentação, hipótese, arquitetura, variáveis, método, resultados esperados e contribuição. Inclui notas para apresentação ao orientador |
-| `mapa-mental-tcc.excalidraw` | Diagrama visual do mapa mental pronto para importar no [Excalidraw](https://excalidraw.com) |
-| `generate-excalidraw.js` | Script Node.js que gera o arquivo `.excalidraw` a partir da definição programática dos elementos |
-
----
-
-## Arquitetura do Protótipo (Resumo)
-
-```
-┌─────────────────────────────────────────────────┐
-│           PAPERCLIP (Governança)                 │
-│  SDD (contrato) + Guardrails + Budget Control   │
-└──────────────────┬──────────────────────────────┘
-                   │ spec aprovada
-                   ▼
-┌─────────────────────────────────────────────────┐
-│           HERMES (Execução)                      │
-│  Loop TDD: RED → GREEN → REFACTOR               │
-│  Test Harness + Sandbox + Auto-correção          │
-└──────────────────┬──────────────────────────────┘
-                   │ resultado auditado
-                   ▼
-              [Usuário]
-```
-
-### Congruência entre Pilares Comportamentais e Mecanismos de Engenharia
-
-| Pilar (Karpathy, 2025) | Mecanismo | Implementação |
-|---|---|---|
-| Think Before Coding + Simplicity First | **SDD** — contrato de especificação | Paperclip aprova spec antes da execução |
-| Goal-Driven Execution | **TDD + Test Harness** — loop RED-GREEN-REFACTOR | Hermes itera até passar nos testes |
-| Surgical Changes | **Guardrails + Sandbox** — isolamento | Paperclip bloqueia ações fora de escopo |
-
----
-
-## Desenho Experimental (Resumo)
-
-- **Condição controle:** Agente LLM em fluxo gerativo livre (prompt → resposta direta)
-- **Condição experimental:** Agente com arquitetura restritiva (SDD + TDD + Guardrails + Harness)
-- **Benchmark:** 20–30 issues reais de repositórios open-source (bug fixes, features, refatoração)
-- **Variáveis dependentes:**
-  - VD1: Taxa de alucinação
-  - VD2: Taxa de regressão
-  - VD3: Eficiência de tokens
-  - VD4: Taxa de acerto na 1ª iteração
-- **Análise:** Teste t pareado, Cohen's d, análise qualitativa de padrões de falha
-
----
-
-## Como Usar o Diagrama Excalidraw
-
-1. Acesse [excalidraw.com](https://excalidraw.com)
-2. Clique no menu superior esquerdo → **Open**
-3. Selecione o arquivo `mapa-mental-tcc.excalidraw`
-4. O diagrama será carregado com todos os 8 ramos do mapa mental, setas de conexão e legendas
-
-Para regenerar o diagrama após alterações:
 ```bash
-node generate-excalidraw.js
+cd experiment
+pip install -r requirements.txt
+python -m playwright install chromium
+docker build -f docker/rails_runner.Dockerfile -t tcc-rails-runner:latest .
+cp .env.example .env   # preencher DEEPSEEK_API_KEY
+
+python run_batch.py --provider deepseek --pilot     # piloto, obrigatório antes
+python run_batch.py --provider deepseek             # as 30 definitivas
+
+python summarize_results.py --final-only > results_summary.csv
+Rscript install_packages.R
+Rscript analyze_results.R
 ```
 
----
-
-## Referências
-
-- **Karpathy, A.** (2025). Análise do comportamento de agentes de IA autônomos. Vídeo "Claude Code 10x Melhor com Estratégia de 132.000 Estrelas (Github)", Canal Maestros da IA.
-- **CLAUDE.md** — Repositório GitHub (+130.000 ★). Estratégia de diretrizes centralizadas para disciplina de agentes.
-- **Nous Research.** Hermes Agent Framework — orquestrador open-source com memória persistente, sandboxing e loop de aprendizado contínuo.
-- **Paperclip** — Sistema de governança para orquestração de agentes de IA: controle de orçamento, aprovações e auditabilidade.
-
----
-
-## Status
-
-🟡 **Em ideação** — Rascunho para discussão com orientador. Sujeito a ajustes de escopo, método e variáveis conforme feedback da banca.
-
----
-
-> **Orientação:** UFG / AKCIT — Processamento de Linguagem Natural  
-> **Autor:** [henri]  
-> **Licença:** Este repositório é privado. Consulte o autor antes de compartilhar.
+Revalidado em 15/09: `analyze_results.R` sobre `results_summary.csv` reproduz `analysis_output.txt` de ponta a ponta, e `summarize_results.py --final-only` reconstrói exatamente as mesmas 30 execuções a partir dos logs brutos em `results/` — o pipeline é reprodutível do log bruto até o resultado final.

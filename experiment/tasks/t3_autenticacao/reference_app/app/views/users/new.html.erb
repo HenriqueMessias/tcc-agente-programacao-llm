@@ -1,0 +1,16 @@
+<h1>Cadastro</h1>
+<%= form_with model: @user, url: signup_path, id: "signup-form" do |f| %>
+  <% if @user.errors.any? %>
+    <div class="error" id="signup-errors">
+      <ul><% @user.errors.full_messages.each do |msg| %><li><%= msg %></li><% end %></ul>
+    </div>
+  <% end %>
+
+  <label for="user_email">Email</label>
+  <%= f.email_field :email, id: "user_email" %>
+
+  <label for="user_password">Senha</label>
+  <%= f.password_field :password, id: "user_password" %>
+
+  <%= f.submit "Cadastrar", id: "signup-submit" %>
+<% end %>

@@ -1,0 +1,121 @@
+<% max_category_total = @totals_by_category.values.map(&:to_f).max || 0.0 %>
+
+<div id="dashboard">
+  <header class="dashboard-header">
+    <h1>Dashboard de Vendas</h1>
+    <p class="dashboard-subtitle">Visão geral das vendas por período</p>
+  </header>
+
+  <form id="filter-form" method="get" action="/dashboard">
+    <div class="filter-field">
+      <label for="start_date">Data inicial</label>
+      <input type="date" id="start_date" name="start_date" value="<%= @start_date %>">
+    </div>
+
+    <div class="filter-field">
+      <label for="end_date">Data final</label>
+      <input type="date" id="end_date" name="end_date" value="<%= @end_date %>">
+    </div>
+
+    <div class="filter-field filter-actions">
+      <input type="submit" value="Filtrar">
+    </div>
+  </form>
+
+  <section class="metrics">
+    <div class="metric">
+      <span class="metric-label">Total de vendas</span>
+      <span class="metric-value" id="metric-total"><%= number_to_currency(@total_sales, unit: "R$ ", separator: ",", delimiter: ".") %></span>
+    </div>
+
+    <div class="metric">
+      <span class="metric-label">Número de pedidos</span>
+      <span class="metric-value" id="metric-count"><%= @orders_count %></span>
+    </div>
+
+    <div class="metric">
+      <span class="metric-label">Ticket médio</span>
+      <span class="metric-value" id="metric-average"><%= number_to_currency(@average_ticket, unit: "R$ ", separator: ",", delimiter: ".") %></span>
+    </div>
+  </section>
+
+  <% if @orders_count.zero? %>
+    <div id="empty-state">
+      <p>Nenhum pedido encontrado no período selecionado.</p>
+    </div>
+  <% else %>
+    <section class="chart-section">
+      <h2>Vendas por categoria</h2>
+      <div id="chart">
+        <% @totals_by_category.each do |category, total| %>
+          <% height_pct = max_category_total.positive? ? (total.to_f / max_category_total * 100).round(1) : 0 %>
+          <div class="chart-bar"
+               data-category="<%= category %>"
+               data-value="<%= total.to_f %>"
+               style="height: <%= height_pct %>%;">
+            <span class="chart-bar-value"><%= number_to_currency(total, unit: "", separator: ",", delimiter: ".") %></span>
+            <span class="chart-bar-label"><%= category %></span>
+          </div>
+        <% end %>
+      </div>
+    </section>
+
+    <section class="table-section">
+      <h2>Pedidos do período</h2>
+      <table id="orders-table">
+        <thead>
+          <tr>
+            <th>Categoria</th>
+            <th>Valor</th>
+            <th>Data</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @orders.each do |order| %>
+            <tr>
+              <td><%= order.category %></td>
+              <td><%= number_to_currency(order.amount, unit: "R$ ", separator: ",", delimiter: ".") %></td>
+              <td><%= order.order_date.strftime("%Y-%m-%d") %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </section>
+  <% end %>
+</div>
+
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #f5f6f8; }
+  #dashboard { font-family: -apple-system, "Segoe UI", Roboto, sans-serif; max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem; color: #1f2933; }
+  .dashboard-header { margin-bottom: 1.5rem; }
+  .dashboard-header h1 { margin: 0; font-size: 1.75rem; }
+  .dashboard-subtitle { margin: 0.25rem 0 0; color: #6b7280; font-size: 0.95rem; }
+
+  #filter-form { display: flex; flex-wrap: wrap; gap: 1rem; align-items: flex-end; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 1.5rem; }
+  .filter-field { display: flex; flex-direction: column; gap: 0.35rem; }
+  .filter-field label { font-size: 0.8rem; color: #6b7280; font-weight: 600; }
+  .filter-field input[type="date"] { padding: 0.5rem 0.6rem; border: 1px solid #d1d5db; border-radius: 6px; font-size: 0.9rem; }
+  .filter-actions input[type="submit"] { padding: 0.55rem 1.25rem; background: #2563eb; color: #fff; border: none; border-radius: 6px; font-size: 0.9rem; font-weight: 600; cursor: pointer; }
+  .filter-actions input[type="submit"]:hover { background: #1d4ed8; }
+
+  .metrics { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
+  .metric { flex: 1; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 1.25rem; }
+  .metric-label { display: block; font-size: 0.8rem; color: #6b7280; font-weight: 600; text-transform: uppercase; letter-spacing: 0.03em; }
+  .metric-value { display: block; margin-top: 0.5rem; font-size: 1.6rem; font-weight: 700; color: #111827; }
+
+  .chart-section, .table-section { background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; }
+  .chart-section h2, .table-section h2 { margin: 0 0 1rem; font-size: 1.1rem; }
+
+  #chart { display: flex; align-items: flex-end; gap: 1.5rem; height: 240px; border-bottom: 2px solid #d1d5db; padding: 0 0.5rem; }
+  .chart-bar { background: #2563eb; width: 64px; min-height: 4px; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; border-radius: 4px 4px 0 0; color: #fff; font-size: 0.7rem; text-align: center; padding-bottom: 0.25rem; }
+  .chart-bar-value { font-weight: 600; }
+  .chart-bar-label { margin-top: 0.25rem; }
+
+  #orders-table { width: 100%; border-collapse: collapse; }
+  #orders-table th, #orders-table td { padding: 0.65rem 0.75rem; text-align: left; border-bottom: 1px solid #e5e7eb; font-size: 0.9rem; }
+  #orders-table th { background: #f9fafb; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.03em; color: #6b7280; }
+  #orders-table tbody tr:hover { background: #f9fafb; }
+
+  #empty-state { background: #fff; border: 1px dashed #cbd5e1; border-radius: 8px; padding: 3rem 1rem; text-align: center; color: #6b7280; }
+</style>

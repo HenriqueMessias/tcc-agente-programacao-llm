@@ -1,0 +1,19 @@
+<%= render "shared/errors", object: @book %>
+
+<%= form_with model: @book do |f| %>
+  <div>
+    <%= f.label :title, "Título" %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :published_year, "Ano de publicação" %>
+    <%= f.number_field :published_year %>
+  </div>
+  <div>
+    <%= f.label :author_id, "Autor" %>
+    <%= f.collection_select :author_id, Author.order(:name), :id, :name, include_blank: "Selecione" %>
+  </div>
+  <div>
+    <%= f.submit "Salvar" %>
+  </div>
+<% end %>

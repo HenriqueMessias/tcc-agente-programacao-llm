@@ -1,0 +1,14 @@
+<h1>Autores</h1>
+
+<%= link_to "Novo Autor", new_author_path %>
+
+<ul id="authors">
+  <% @authors.each do |author| %>
+    <li id="author-<%= author.id %>">
+      <%= author.name %>
+      <%= link_to "Ver", author %>
+      <%= link_to "Editar", edit_author_path(author) %>
+      <%= button_to "Excluir", author, method: :delete, data: { turbo_confirm: "Tem certeza?" } %>
+    </li>
+  <% end %>
+</ul>

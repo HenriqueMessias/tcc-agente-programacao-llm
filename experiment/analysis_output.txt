@@ -1,0 +1,147 @@
+Carregando pacotes exigidos: lme4
+Carregando pacotes exigidos: Matrix
+
+Anexando pacote: 'lmerTest'
+
+O seguinte objeto é mascarado por 'package:lme4':
+
+    lmer
+
+O seguinte objeto é mascarado por 'package:stats':
+
+    step
+
+Carregadas 30 execucoes de results_summary.csv
+  concluida=20  malsucedida=10
+
+==================== ANALISE CONFIRMATORIA (secao 6.9) ====================
+
+--- H1 - Conformidade funcional (acceptance_criteria_ratio) (n=15 pares, H_alt: restricted > baseline, alfa=0.05 unilateral) ---
+  Distribuicao restricted: min=0.0000 Q1=0.0000 mediana=0.0000 Q3=1.0000 max=1.0000
+  Distribuicao baseline:   min=1.0000 Q1=1.0000 mediana=1.0000 Q3=1.0000 max=1.0000
+  Estimador de Hodges-Lehmann (pseudomediana da diferenca restricted-baseline) = -0.5000
+  IC 95% bootstrap (percentil, 10000 reamostragens) = [-1.0000, -0.5000]
+  p-valor (Wilcoxon signed-rank pareado, unilateral, bruto) = 1.000000
+  Correlacao rank-biserial pareada = -1.0000
+  Cliff's delta (amostras tratadas como independentes) = -0.6667
+
+--- H2 - Falhas de integracao E2E (e2e_failures) (n=15 pares, H_alt: restricted < baseline, alfa=0.05 unilateral) ---
+  Distribuicao restricted: min=1.0000 Q1=1.0000 mediana=2.0000 Q3=3.0000 max=3.0000
+  Distribuicao baseline:   min=0.0000 Q1=0.0000 mediana=0.0000 Q3=0.0000 max=3.0000
+  Estimador de Hodges-Lehmann (pseudomediana da diferenca restricted-baseline) = 1.5000
+  IC 95% bootstrap (percentil, 10000 reamostragens) = [1.0000, 2.5000]
+  p-valor (Wilcoxon signed-rank pareado, unilateral, bruto) = 1.000000
+  Correlacao rank-biserial pareada = 1.0000
+  Cliff's delta (amostras tratadas como independentes) = 0.8444
+
+--- H3 - Eficiencia: tokens por execucao aprovada do par (secao 6.2) (n=15 pares, H_alt: restricted < baseline, alfa=0.05 unilateral) ---
+  Distribuicao restricted: min=49963.0000 Q1=94804.2500 mediana=375170.0000 Q3=496091.5000 max=1144911.0000
+  Distribuicao baseline:   min=57686.0000 Q1=122331.5000 mediana=145234.0000 Q3=164245.0000 max=302096.0000
+  Estimador de Hodges-Lehmann (pseudomediana da diferenca restricted-baseline) = 189346.0000
+  IC 95% bootstrap (percentil, 10000 reamostragens) = [75655.0000, 393146.2500]
+  p-valor (Wilcoxon signed-rank pareado, unilateral, bruto) = 0.996643
+  Correlacao rank-biserial pareada = 0.7500
+  Cliff's delta (amostras tratadas como independentes) = 0.3867
+
+[H3] Nenhum par excluido -- todos os 15 pares tem pelo menos 1 execucao aprovada.
+
+--- Correcao de Holm (familia de 3 hipoteses, alfa=0,05 unilateral) ---
+  H1: p bruto = 1.000000 -> p ajustado (Holm) = 1.000000  [nao significativo]
+  H2: p bruto = 1.000000 -> p ajustado (Holm) = 1.000000  [nao significativo]
+  H3: p bruto = 0.996643 -> p ajustado (Holm) = 1.000000  [nao significativo]
+
+==================== CLASSIFICACAO DO RESULTADO (3 classes admitidas) ====================
+(baseada em teste bicaudal auxiliar por hipotese, so para esta classificacao narrativa)
+  H1: (3) Piora na condicao restritiva (diferenca na direcao oposta a esperada)  (p bicaudal=0.001953)
+  H2: (3) Piora na condicao restritiva (diferenca na direcao oposta a esperada)  (p bicaudal=0.000488)
+  H3: (3) Piora na condicao restritiva (diferenca na direcao oposta a esperada)  (p bicaudal=0.008362)
+
+  Nota: as 3 classes (favoravel / sem diferenca / piora) sao igualmente
+  reportaveis por definicao do protocolo -- nenhuma invalida o estudo.
+
+==================== ANALISES SECUNDARIAS (modelos mistos) ====================
+
+--- H1 secundaria: modelo misto binomial ---
+  [nao foi possivel ajustar]: Response is constant -- provavel quase-separacao perfeita entre condicoes (ver H1 primaria: efeito ja e extremo, r_rb=-1).
+
+--- H2 secundaria: modelo de contagem misto (Poisson -> binomial negativa se sobredisperso) ---
+  Razao de dispersao (Pearson chisq / df) do modelo Poisson = 0.9602 (>~1.5 sugere sobredispersao)
+  Modelo final: Poisson
+                Estimate Std. Error   z value     Pr(>|z|)
+(Intercept)    -1.134121  0.4745174 -2.390051 0.0168460179
+moderestricted  1.791745  0.4809546  3.725392 0.0001950118
+
+--- H3 secundaria: modelo misto log-normal (eficiencia, secao 6.2) ---
+                Estimate Std. Error        df   t value     Pr(>|t|)
+(Intercept)    11.847644  0.4100154  2.226271 28.895604 0.0006523262
+moderestricted  0.626899  0.1875178 26.000000  3.343144 0.0025207925
+  IC 95% de Wald para mode=restricted (escala log):
+                   2.5 %    97.5 %
+moderestricted 0.2593709 0.9944271
+  Razao geometrica de eficiencia (restricted/baseline) = 1.8718 [IC 95%: 1.2961, 2.7032]
+
+==================== ANALISE EXPLORATORIA POR TAREFA (sem teste de hipotese) ====================
+
+--- H1 - Conformidade funcional, por tarefa ---
+  t1_biblioteca      n=5  HL=-1.0000  IC95%boot=[-1.0000, -1.0000]  r_rb=-1.0000
+  t2_dashboard       n=5  HL=-1.0000  IC95%boot=[-1.0000, -1.0000]  r_rb=-1.0000
+  t3_autenticacao    n=5  HL=0.0000  IC95%boot=[0.0000, 0.0000]  r_rb=   NA
+
+--- H2 - Falhas E2E, por tarefa ---
+  t1_biblioteca      n=5  HL=3.0000  IC95%boot=[1.5000, 3.0000]  r_rb=1.0000
+  t2_dashboard       n=5  HL=2.0000  IC95%boot=[2.0000, 2.0000]  r_rb=1.0000
+  t3_autenticacao    n=5  HL=0.5000  IC95%boot=[0.0000, 1.0000]  r_rb=1.0000
+
+--- H3 - Eficiencia (tokens/execucao aprovada), por tarefa ---
+  t1_biblioteca      n=5  HL=511588.5000  IC95%boot=[197561.5000, 904732.5000]  r_rb=1.0000
+  t2_dashboard       n=5  HL=246337.0000  IC95%boot=[168330.5000, 364356.0000]  r_rb=1.0000
+  t3_autenticacao    n=5  HL=-40986.0000  IC95%boot=[-74351.5000, -9548.2500]  r_rb=-1.0000
+
+==================== DESFECHOS DESCRITIVOS (DOM, visual, tempo -- sem teste) ====================
+
+--- Conformidade estrutural do DOM (dom_assertions_passed/total, apenas execucoes concluida) ---
+  baseline    n=15  min=0.0000 Q1=1.0000 mediana=1.0000 Q3=1.0000 max=1.0000
+  restricted  n=5  min=1.0000 Q1=1.0000 mediana=1.0000 Q3=1.0000 max=1.0000
+
+--- Conformidade visual (visual_captures_passed/total, apenas execucoes concluida) ---
+  baseline    n=14  min=0.0000 Q1=0.0000 mediana=0.5000 Q3=1.0000 max=1.0000
+  restricted  n=5  min=1.0000 Q1=1.0000 mediana=1.0000 Q3=1.0000 max=1.0000
+
+--- Tempo de execucao em segundos (elapsed_s, todas as 30 execucoes) ---
+  baseline    n=15  min=120.9596 Q1=139.1321 mediana=155.0251 Q3=184.4426 max=255.7065
+  restricted  n=15  min=147.4410 Q1=189.7399 mediana=309.5411 Q3=383.8974 max=842.1281
+
+==================== EXECUCOES MALSUCEDIDAS (reportadas separadamente, 6.8-ii) ====================
+                                  execution_id          task       mode seed
+ t1_biblioteca_restricted_seed1rep1_1789391307 t1_biblioteca restricted    1
+ t1_biblioteca_restricted_seed2rep2_1789391979 t1_biblioteca restricted    2
+ t1_biblioteca_restricted_seed3rep3_1789398336 t1_biblioteca restricted    3
+ t1_biblioteca_restricted_seed4rep4_1789392903 t1_biblioteca restricted    4
+ t1_biblioteca_restricted_seed5rep5_1789399186 t1_biblioteca restricted    5
+  t2_dashboard_restricted_seed1rep1_1789399594  t2_dashboard restricted    1
+  t2_dashboard_restricted_seed2rep2_1789394768  t2_dashboard restricted    2
+  t2_dashboard_restricted_seed3rep3_1789395118  t2_dashboard restricted    3
+  t2_dashboard_restricted_seed4rep4_1789395742  t2_dashboard restricted    4
+  t2_dashboard_restricted_seed5rep5_1789396069  t2_dashboard restricted    5
+ repetition                            status total_cost_usd tokens_raw
+          1        malsucedida:max_iterations     0.14869666     520475
+          2        malsucedida:max_iterations     0.13474860     471708
+          3        malsucedida:max_iterations     0.32606644    1144911
+          4 malsucedida:max_dom_visual_passes     0.26147618     915865
+          5 malsucedida:max_dom_visual_passes     0.10790262     376288
+          1 malsucedida:max_dom_visual_passes     0.16416624     575662
+          2 malsucedida:max_dom_visual_passes     0.10699388     375170
+          3 malsucedida:max_dom_visual_passes     0.12450130     435298
+          4 malsucedida:max_dom_visual_passes     0.09323762     326081
+          5 malsucedida:max_dom_visual_passes     0.09008622     315581
+
+  Total: 10/30 execucoes malsucedidas (33.3%)
+  Por tarefa x condicao:
+               
+                restricted
+  t1_biblioteca          5
+  t2_dashboard           5
+
+Versoes de pacotes registradas em r_package_versions.txt
+
+=================================================================

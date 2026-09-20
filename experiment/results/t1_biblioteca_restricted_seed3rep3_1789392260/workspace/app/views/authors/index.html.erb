@@ -1,0 +1,23 @@
+<h1>Autores</h1>
+
+<%= link_to "Novo Autor", new_author_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @authors.each do |author| %>
+      <tr>
+        <td><%= author.name %></td>
+        <td>
+          <%= link_to "Editar", edit_author_path(author) %>
+          <%= link_to "Excluir", author, data: { turbo_method: :delete, turbo_confirm: "Tem certeza?" } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,21 @@
+<% if author.errors.any? %>
+  <div class="errors">
+    <h2><%= pluralize(author.errors.count, "erro") %> impediram o salvamento:</h2>
+    <ul>
+      <% author.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with model: author do |form| %>
+  <div>
+    <%= form.label :name, "Nome" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
